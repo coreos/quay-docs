@@ -2,4 +2,12 @@
 layout: doc
 title: Quay.io Documentation
 ---
-stuff!
+
+<h3>Glossary</h3>
+<ul>
+{% for page in site.pages %}
+{% if page.sublayout == 'glossary' %}
+  <li><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></li>
+{% endif %}
+{% endfor %}
+</ul>
