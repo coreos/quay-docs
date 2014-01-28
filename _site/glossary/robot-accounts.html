@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/print.css" media="print" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Robot Accounts - Quay Documentation by DevTable</title>
+  </head>
+
+  <body class="glossary">
+    <header>
+      <div class="content">
+        <a href="https://quay.io"><img src="/images/quay-logo.png"></a>
+        <h2>Documentation</h2>
+      </div>
+      <div class="divider"></div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h2>Robot Accounts</h2>
+          <p>
+  There are many circumstances where permissions for repositories need to be shared across those repositories (continuous integration, etc).
+  To support this case, Quay allows the use of <b>robot accounts</b> which can be shared by multiple repositories that are owned by a user or organization.
+</p>
+
+<h3>Managing robot accounts</h3>
+Robot accounts can be managed in the <a href="/glossary/user-admin.html">user</a> or <a href="/glossary/org-admin.html">organization</a>'s admin panel under the <b>Robot Accounts</b> tab.
+
+<h3>Adding a robot account</h3>
+Click "Create Robot Account" and enter a name for the account. The username will become <b>namespace+accountname</b> where "namespace" is the name of the user or organiaztion.
+
+<h3>Logging in with a robot account</h3>
+The following credentials are used:
+<dl>
+  <dt>Username</dt><dd>namespace+accountname (Example: mycompany+deploy)</dd>
+  <dt>Password</dt><dd>(token value can be found by clicking on the robot account in the admin panel)</dd>
+  <dt>Email</dt><dd>This value is ignored, any value may be used.</dd>
+</dl>
+
+<pre class="command-example">
+docker login quay.io
+Login against server at https://quay.io/v1/
+Username: mycompany+myrobot
+Password: (password from robots panel)
+Email: any@example.com
+</pre>
+
+<h3>Setting permissions</h3>
+Permissions can be granted to a robot account in a repository by adding that account like any other user or team.
+
+<h3>Deleting a robot account</h3>
+A robot account can be deleted by clicking the <b><i class="fa fa-times"></i></b> icon and then clicking <b>Delete</b>
+
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/DevTable/quaydocs/blob/gh-pages/glossary/robot-accounts.html" class="button"><small>Edit documentation on</small>GitHub</a>
+        </aside>
+      </div>
+    </div>
+  </body>
+</html>
