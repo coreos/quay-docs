@@ -46,6 +46,10 @@ table {
 	border-spacing: 0;
 }
 
+table thead td {
+  font-weight: bold;
+}
+
 /* LAYOUT STYLES */
 body {
   font-size: 15px;
@@ -175,7 +179,7 @@ pre {
   background: #fff;
   text-shadow: none;
   overflow: auto;
-  border: solid 1px #f2f2f2;
+  border: solid 1px #ccc;
   position: relative;
 }
 
@@ -184,6 +188,10 @@ pre code {
   background-color: #fff;
   border: none;
   padding: 0;
+}
+
+pre.command-example {
+  margin-top: 20px;
 }
 
 pre.command-example:after {
@@ -226,12 +234,14 @@ table {
 
 th {
   font-weight: 500;
+  padding: 4px;
 }
 
 td {
   border: 1px solid #ebebeb;
-  text-align: center; 
   font-weight: 300;
+  padding: 4px;
+  text-align: center;
 }
 
 form {
@@ -502,10 +512,20 @@ footer a:hover {
   margin-right: 6px;
 }
 
+.solution #main-content h2:before {
+  content: "\f058";
+  font-family: FontAwesome;
+  margin-right: 6px;
+}
+
 .glossary #main-content h2:before {
   content: "\f05a";
   font-family: FontAwesome;
   margin-right: 6px;
+}
+
+.glossary #main-content h4 {
+  margin-left: 10px;
 }
 
 .issue #main-content h3.reason:before {

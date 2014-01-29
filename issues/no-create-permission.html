@@ -1,0 +1,12 @@
+---
+layout: doc
+sublayout: issue
+title: Cannot create new repository
+---
+<p>The user or <a href="{{ site.domain }}/glossary/robot-accounts.html">robot account</a> does not have permission to create new repositories in this namespace.
+
+<h3 class="reason">I do not belong to an organization and this is not my namespace</h3>
+A user or robot account can only create repositories in its <b>own</b> namespace. For example, the user <code>devtable</code> can only create repositories named <code>devtable/(repo name)</code>.
+
+<h3 class="reason">My account is part of an organization</h3>
+Check with your organization administrator to ensure that your user or robot account is part of a <a href="{{ site.domain }}/glossary/teams.html">team</a> with the <code>creator</code> permission.

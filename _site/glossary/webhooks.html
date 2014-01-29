@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/print.css" media="print" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Webhooks - Quay Documentation by DevTable</title>
+  </head>
+
+  <body class="glossary">
+    <header>
+      <div class="content">
+        <a href="https://quay.io"><img src="/images/quay-logo.png"></a>
+        <h2>Documentation</h2>
+      </div>
+      <div class="divider"></div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h2>Webhooks</h2>
+          <p>
+A repository can have one or more <b>push webhooks</b> setup, which will be invoked whenever <u>a successful push occurs</u>.
+</p>
+
+<h3>Managing webhooks</h3>
+<p>
+Webhooks can be managed from the repository's <a href="repo-admin.html">admin page</a>.
+</p>
+
+<h3>Webhook call format</h3>
+<p>
+A webhook will be invoked
+      as an HTTP <b>POST</b> to the specified URL, with a JSON body describing the push:
+      <pre>
+{
+  <span class="context-tooltip" title="The number of images pushed" bs-tooltip="tooltip.title">"pushed_image_count"</span>: 2,
+  <span class="context-tooltip" title="The name of the repository (without its namespace)" bs-tooltip="tooltip.title">"name"</span>: "ubuntu",
+  <span class="context-tooltip" title="The full name of the repository" bs-tooltip="tooltip.title">"repository"</span>:"devtable/ubuntu",
+  <span class="context-tooltip" title="The URL at which the repository can be pulled by Docker" bs-tooltip="tooltip.title">"docker_url"</span>: "quay.io/devtable/ubuntu",
+  <span class="context-tooltip" title="Map of updated tag names to their latest image IDs" bs-tooltip="tooltip.title">"updated_tags"</span>: {
+    "latest": "b750fe79269d2ec9a3c593ef05b4332b1d1a02a62b4accb2c21d589ff2f5f2dc"
+  },
+  <span class="context-tooltip" title="The namespace of the repository" bs-tooltip="tooltip.title">"namespace"</span>: "devtable",
+  <span class="context-tooltip" title="Whether the repository is public or private" bs-tooltip="tooltip.title">"visibility"</span>: "private",
+  <span class="context-tooltip" title="The Quay URL for the repository" bs-tooltip="tooltip.title">"homepage"</span>: "https://quay.io/repository/devtable/ubuntu"
+}
+</pre>
+</p>
+
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/DevTable/quaydocs/blob/gh-pages/glossary/webhooks.html" class="button"><small>Edit documentation on</small>GitHub</a>
+        </aside>
+      </div>
+    </div>
+  </body>
+</html>

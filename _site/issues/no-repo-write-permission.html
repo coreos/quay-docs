@@ -13,10 +13,10 @@
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <title>Quay.io Documentation - Quay Documentation by DevTable</title>
+    <title>Cannot modify repository - Quay Documentation by DevTable</title>
   </head>
 
-  <body class="">
+  <body class="issue">
     <header>
       <div class="content">
         <a href="https://quay.io"><img src="/images/quay-logo.png"></a>
@@ -28,80 +28,20 @@
     <div id="content-wrapper">
       <div class="inner clearfix">
         <section id="main-content">
-          <h2>Quay.io Documentation</h2>
-          <h3>Glossary</h3>
-<ul>
+          <h2>Cannot modify repository</h2>
+          <p>The user, <a href="/glossary/robot-accounts.html">robot account</a>, or <a href="/glossary/access-token.html">access token</a> does not have permission to modify the repository.</p>
 
+<h3 class="reason">An access token or user does not have at least <code>write</code> permission on the repository</h3>
+Check the permissions for the user, robot account or token in the repository's <a href="/glossary/repo-admin.html">admin page</a> and make sure it is listed with <code>write</code> or <code>admin</code>
 
-  <li><a href="/glossary/access-token.html">Access Tokens</a></li>
-
-
-
-  <li><a href="/glossary/org-admin.html">Organization Admin Panel</a></li>
-
-
-
-  <li><a href="/glossary/repo-admin.html">Repository Admin Panel</a></li>
-
-
-
-  <li><a href="/glossary/robot-accounts.html">Robot Accounts</a></li>
-
-
-
-  <li><a href="/glossary/teams.html">Teams</a></li>
-
-
-
-  <li><a href="/glossary/user-admin.html">User Admin Panel</a></li>
-
-
-
-  <li><a href="/glossary/webhooks.html">Webhooks</a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</ul>
+<h3 class="reason">My account is part of an organization</h3>
+Check with your organization administrator to ensure that either your account has <code>write</code> permission or
+a <a href="/glossary/teams.html">team</a> in which you are a member has <code>write</code> permission for the repository.
 
         </section>
 
         <aside id="sidebar">
-          <a href="https://github.com/DevTable/quaydocs/blob/gh-pages/index.html" class="button"><small>Edit documentation on</small>GitHub</a>
+          <a href="https://github.com/DevTable/quaydocs/blob/gh-pages/issues/no-repo-write-permission.html" class="button"><small>Edit documentation on</small>GitHub</a>
         </aside>
       </div>
     </div>

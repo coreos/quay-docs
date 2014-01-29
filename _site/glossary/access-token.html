@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/print.css" media="print" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Access Tokens - Quay Documentation by DevTable</title>
+  </head>
+
+  <body class="glossary">
+    <header>
+      <div class="content">
+        <a href="https://quay.io"><img src="/images/quay-logo.png"></a>
+        <h2>Documentation</h2>
+      </div>
+      <div class="divider"></div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h2>Access Tokens</h2>
+          <p>
+  For per-repository token authentication, Quay allows the use of <b>access tokens</b> which can be created on a repository and have read and/or write permissions, without any passwords.
+</p>
+
+<h3>Managing access tokens</h3>
+Access tokens can be managed in the <a href="/glossary/repo-admin.html">repo admin</a> panel.
+
+<h3>Adding an access token</h3>
+Enter a user-readable description in the "New token description" field
+
+<h3>Authenticating with an access token</h3>
+To authenticate with an access token, either download the <code>.dockercfg</code> file from the access token's panel OR use <code>docker login</code> as described below.
+
+<h3>Logging in with an access token</h3>
+The following credentials are used:
+<dl>
+  <dt>Username</dt><dd>$token</dd>
+  <dt>Password</dt><dd>(token value can be found by clicking on the token)</dd>
+  <dt>Email</dt><dd>This value is ignored, any value may be used.</dd>
+</dl>
+
+<pre class="command-example">
+docker login quay.io
+Login against server at https://quay.io/v1/
+Username: $token
+Password: (token value from the token)
+Email: any@example.com
+</pre>
+
+<h3>Setting permissions</h3>
+A token's permissions can be changed by clicking the field to the right of the token
+
+<h3>Deleting an access token</h3>
+An access token can be deleted by clicking the <b><i class="fa fa-times"></i></b> icon and then clicking <b>Delete</b>
+
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/DevTable/quaydocs/blob/gh-pages/glossary/access-token.html" class="button"><small>Edit documentation on</small>GitHub</a>
+        </aside>
+      </div>
+    </div>
+  </body>
+</html>
