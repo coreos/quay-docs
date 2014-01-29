@@ -11,3 +11,12 @@ title: Quay.io Documentation
 {% endif %}
 {% endfor %}
 </ul>
+
+<h3>Guides</h3>
+<ul>
+{% for page in site.pages %}
+{% if page.sublayout == 'solution' %}
+  <li><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></li>
+{% endif %}
+{% endfor %}
+</ul>

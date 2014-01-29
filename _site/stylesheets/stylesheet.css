@@ -355,8 +355,14 @@ blockquote {
 }
 
 ul {
-  list-style: disc inside;
-  padding-left: 20px;
+  list-style: none;
+  padding-left: 0px;
+}
+
+ul li:before {
+  content: '\f054';
+  padding-right: 10px;
+  font-family: 'FontAwesome';
 }
 
 ol {
