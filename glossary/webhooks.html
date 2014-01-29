@@ -19,16 +19,16 @@ A webhook will be invoked
       as an HTTP <b>POST</b> to the specified URL, with a JSON body describing the push:
       <pre>
 {
-  <span class="context-tooltip" title="The number of images pushed" bs-tooltip="tooltip.title">"pushed_image_count"</span>: 2,
-  <span class="context-tooltip" title="The name of the repository (without its namespace)" bs-tooltip="tooltip.title">"name"</span>: "ubuntu",
-  <span class="context-tooltip" title="The full name of the repository" bs-tooltip="tooltip.title">"repository"</span>:"devtable/ubuntu",
-  <span class="context-tooltip" title="The URL at which the repository can be pulled by Docker" bs-tooltip="tooltip.title">"docker_url"</span>: "quay.io/devtable/ubuntu",
-  <span class="context-tooltip" title="Map of updated tag names to their latest image IDs" bs-tooltip="tooltip.title">"updated_tags"</span>: {
+  <span class="context-tooltip" title="The number of images pushed" data-container="body">"pushed_image_count"</span>: 2,
+  <span class="context-tooltip" title="The name of the repository (without its namespace)" data-container="body">"name"</span>: "ubuntu",
+  <span class="context-tooltip" title="The full name of the repository" data-container="body">"repository"</span>:"devtable/ubuntu",
+  <span class="context-tooltip" title="The URL at which the repository can be pulled by Docker" data-container="body">"docker_url"</span>: "quay.io/devtable/ubuntu",
+  <span class="context-tooltip" title="Map of updated tag names to their latest image IDs" data-container="body">"updated_tags"</span>: {
     "latest": "b750fe79269d2ec9a3c593ef05b4332b1d1a02a62b4accb2c21d589ff2f5f2dc"
   },
-  <span class="context-tooltip" title="The namespace of the repository" bs-tooltip="tooltip.title">"namespace"</span>: "devtable",
-  <span class="context-tooltip" title="Whether the repository is public or private" bs-tooltip="tooltip.title">"visibility"</span>: "private",
-  <span class="context-tooltip" title="The Quay URL for the repository" bs-tooltip="tooltip.title">"homepage"</span>: "https://quay.io/repository/devtable/ubuntu"
+  <span class="context-tooltip" title="The namespace of the repository" data-container="body">"namespace"</span>: "devtable",
+  <span class="context-tooltip" title="Whether the repository is public or private" data-container="body">"visibility"</span>: "private",
+  <span class="context-tooltip" title="The Quay URL for the repository" data-container="body">"homepage"</span>: "https://quay.io/repository/devtable/ubuntu"
 }
 </pre>
 </p>
