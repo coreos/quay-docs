@@ -66,11 +66,14 @@ docker run ubuntu echo "fun" > newfile
 <pre class="command-example">
 docker ps -l
 CONTAINER ID        IMAGE               COMMAND             CREATED 
-<var class="var1">07f2065197ef</var>        ubuntu:12.04        echo fun            31 seconds ago   
+<var class="var1">07f2065197ef</var>       ubuntu:12.04        echo fun            31 seconds ago   
 </pre>
 
+<p>Make note of the <var class="var1">container id</var>; we'll need it for the commit command.</p>
+
 <h3>Tag the container to an image</h3>
-<p>We next need to tag the container to a known image name. Note that <var class="var2">username</var> must be your Quay.io username and <var class="var3">reponame</var> is the new name of your repository.</p>
+<p>We next need to tag the container to a known image name</p>
+<p>Note that the <var class="var2">username</var> must be your Quay.io username and <var class="var3">reponame</var> is the new name of your repository.</p>
 <pre class="command-example">
 docker commit <var class="var1">07f2065197ef</var> quay.io/<var class="var2">username</var>/<var class="var3">reponame</var>
 e7050e05a288f9f3498ccd2847fee966d701867bc671b02abf03a6629dc921bb
