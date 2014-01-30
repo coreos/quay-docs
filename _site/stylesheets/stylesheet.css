@@ -208,6 +208,27 @@ code {
   padding: 0 3px;
 }
 
+var {
+  background-color: #f2f8fc;
+  border: solid 1px #dbe7f3;
+  padding: 0 3px;
+}
+
+var.var1 {
+  background-color: #AAD5F1;
+  border-color: rgb(89, 148, 199);
+}
+
+var.var2 {
+  background-color: #AAF1AA;
+  border-color: rgb(89, 199, 102);
+}
+
+var.var3 {
+  background-color: #CCAAF1;
+  border-color: rgb(155, 89, 199);
+}
+
 pre {
   padding: 20px;
   background: #fff;
