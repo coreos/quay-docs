@@ -68,8 +68,10 @@ a:hover {
 }
 
 header {
-  background: #2e7bcf url(../images/header-bg.jpg) 0 0 repeat-x;
+  abackground: #2e7bcf url(../images/header-bg.jpg) 0 0 repeat-x;
   font-family: 'Helvetica Neue', Helvetica, Arial, serif; 
+
+  background: #2e7bcf;
 }
 
 header .divider {
@@ -79,24 +81,51 @@ header .divider {
 
 header .content img {
   width: 100px;
-  margin-right: 10px;
+  margin-right: 4px;
   vertical-align: middle;
 }
 
 header .content {
   background: #f8f8f8;
-  padding: 8px;
-  padding-top: 10px;
-  padding-left: 20px;
+  padding: 20px;
+}
+
+header h2 a {
+  color: #ccc;
 }
 
 header h2 {
   vertical-align: middle;
-  font-size: 26px;
+  font-size: 20px;
   color: #aaa;
   font-weight: normal;
   letter-spacing: 0;
   display: inline-block;
+}
+
+header ul {
+  margin: 0px;
+  padding: 0px;
+  margin-left: 10px;
+  display: inline-block;
+  float: right;
+}
+
+@media only screen and (max-width: 729px) {
+  header ul {
+    display: none;
+  }
+}
+
+header ul li {
+  display: inline-block;
+  list-style: none;
+  font-size: 14px;
+  padding: 6px;
+}
+
+header ul li:before {
+  content: ''
 }
 
 .inner {
@@ -279,6 +308,15 @@ form {
   margin-bottom: 8px;
   color: #474747;
 } 
+
+#main-content h2 .label {
+  float: right;
+}
+
+#main-content h3 .label {
+  float: right;
+}
+
 #main-content h2:before {
   content: "//";
   color: #9ddcff;
