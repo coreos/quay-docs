@@ -42,19 +42,50 @@
           <h2>Cannot create repository as a guest </h2>
           <p>To create a repository on Quay.io, you must use an authenticated user or <a href="/glossary/robot-accounts.html">robot account</a>.</p>
 
-<h3 class="reason">You are not signed into Quay.io in the Docker CLI</h3>
-To login, execute <code>docker login quay.io</code> and give it your Quay.io user or <a href="/glossary/robot-accounts.html">robot account</a> credentials.
+<h3 class="reason">I am not signed into Quay.io in the Docker CLI</h3>
+
+<p>To sign into Quay.io, execute the <code>docker login quay.io</code> command:
 
 <pre class="command-example">
 docker login quay.io
 Login against server at https://quay.io/v1/
 Username: myusername
-Password: (my password)
+Password: mypassword
 Email: myemail@example.com
 </pre>
 
-<h3 class="reason">You do not have a user account</h3>
+
+<h3 class="reason">I do not have a user account</h3>
 To create a new user, visit the <a href="https://quay.io/signin">Sign Up</a> page and fill out the form under 'Create Account'.
+
+<h3 class="reason">Unexpected status code [301]</h3>
+I am seeing this error:
+
+<pre>
+Login against server at http://quay.io/v1/
+Error: Unexpected status code [301] : &lt;html&gt;
+&lt;head&gt;&lt;title&gt;301 Moved Permanently&lt;/title&gt;&lt;/head&gt;
+&lt;body bgcolor="white"&gt;
+&lt;center&gt;&lt;h1&gt;301 Moved Permanently&lt;/h1&gt;&lt;/center&gt;
+&lt;hr&gt;&lt;center&gt;nginx/1.4.2&lt;/center&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<p>
+Quay.io requires <code>https</code> at all times. Make sure to <u>not</u> use the <code>http</code> form of the URL.
+</p>
+
+<p>To sign into Quay.io, execute the <code>docker login quay.io</code> command:
+
+<pre class="command-example">
+docker login quay.io
+Login against server at https://quay.io/v1/
+Username: myusername
+Password: mypassword
+Email: myemail@example.com
+</pre>
+
 
         </section>
 
