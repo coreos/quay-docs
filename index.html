@@ -17,6 +17,15 @@ title: Quay.io Documentation
 {% endfor %}
 </ul>
 
+<h3>Troubleshooting</h3>
+<ul>
+{% for page in site.pages %}
+{% if page.sublayout == 'issue' and page.frontpage %}
+  <li><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></li>
+{% endif %}
+{% endfor %}
+</ul>
+
 <h3>Glossary</h3>
 <ul>
 {% for page in site.pages %}
