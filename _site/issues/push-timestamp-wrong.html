@@ -18,10 +18,10 @@
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <title>Quay.io Documentation - Quay Documentation by DevTable</title>
+    <title>I just pushed but the timestamp is wrong - Quay Documentation by DevTable</title>
   </head>
 
-  <body class="">
+  <body class="issue">
     <header>
       <div class="content">
         <a href="https://quay.io"><img src="/images/quay-logo.png"></a>
@@ -39,255 +39,17 @@
     <div id="content-wrapper">
       <div class="inner clearfix">
         <section id="main-content">
-          <h2>Quay.io Documentation </h2>
-          <h3>Tutorials</h3>
-<ul>
-<li><a href="getting-started.html">Getting Started</a></li>
-</ul>
+          <h2>I just pushed but the timestamp is wrong </h2>
+          <p>A recently conducted <code>docker push</code> to Quay.io shows the wrong timestamp for one or more images
 
-<h3>Guides</h3>
-<ul>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <li><a href="/solutions/create-repo.html">Creating a repository</a></li>
-
-
-
-  <li><a href="/solutions/delete-tag.html">Deleting a tag</a></li>
-
-
-
-
-
-  <li><a href="/solutions/login.html">Signing into Quay</a></li>
-
-
-
-  <li><a href="/solutions/pushpull.html">Pushing and Pulling Repositories</a></li>
-
-
-</ul>
-
-<h3>Troubleshooting</h3>
-<ul>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <li><a href="/issues/odd-pull-failure.html">Pulls are failing with an odd error</a></li>
-
-
-
-  <li><a href="/issues/push-timestamp-wrong.html">I just pushed but the timestamp is wrong</a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</ul>
-
-<h3>Glossary</h3>
-<ul>
-
-
-
-
-  <li><a href="/glossary/access-token.html">Access Tokens</a></li>
-
-
-
-
-
-  <li><a href="/glossary/org-admin.html">Organization Admin Panel</a></li>
-
-
-
-  <li><a href="/glossary/repo-admin.html">Repository Admin Panel</a></li>
-
-
-
-  <li><a href="/glossary/robot-accounts.html">Robot Accounts</a></li>
-
-
-
-  <li><a href="/glossary/teams.html">Teams</a></li>
-
-
-
-  <li><a href="/glossary/user-admin.html">User Admin Panel</a></li>
-
-
-
-  <li><a href="/glossary/webhooks.html">Webhooks</a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</ul>
+<h3 class="reason">Your machine/VM's time has desynced</h3>
+<p>The timestamp we show for the <u>Changed</u> field is generated <u>by Docker</u> when the image is created. If the time on the machine on which the image was created is out of sync, the timestamp shown will be different on Quay.io as well. Usually this means a machine needs to be synced with <a href="http://www.ntp.org/">NTP</a>.
 
         </section>
 
         <aside id="sidebar">
-          <a href="https://github.com/DevTable/quaydocs/blob/gh-pages/index.html" class="git-button"><small>Edit documentation on</small>GitHub</a>
+          <a href="https://github.com/DevTable/quaydocs/blob/gh-pages/issues/push-timestamp-wrong.html" class="git-button"><small>Edit documentation on</small>GitHub</a>
         </aside>
       </div>
     </div>

@@ -1,0 +1,11 @@
+---
+layout: doc
+sublayout: issue
+title: I just pushed but the timestamp is wrong
+frontpage: True
+---
+<p>A recently conducted <code>docker push</code> to Quay.io shows the wrong timestamp for one or more images
+
+
+<h3 class="reason">Your machine/VM's time has desynced</h3>
+<p>The timestamp we show for the <u>Changed</u> field is generated <u>by Docker</u> when the image is created. If the time on the machine on which the image was created is out of sync, the timestamp shown will be different on Quay.io as well. Usually this means a machine needs to be synced with <a href="http://www.ntp.org/">NTP</a>.
