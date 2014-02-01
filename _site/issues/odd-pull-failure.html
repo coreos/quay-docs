@@ -43,7 +43,7 @@
           <p>Attempting to <code>docker pull</code> from Quay.io results in an odd error message</p>
 
 
-<h2>I'm using Ubuntu Precise Pangolin (12.04 LTS) (64-bit) and get an error similar to this:</h2>
+<h2>I get an error similar to this:</h2>
 <pre>
 Pulling repository quay.io/my/repository
 39cb5a2eab5d: Error pulling image (myimage) from quay.io/my/repository, <u>link /var/lib/docker/devicemapper/mnt/bd6de6dfce</u>
@@ -53,13 +53,21 @@ bd6de6dfce2d: Error downloading dependent layers
 2014/01/01 01:01:01 Could not find repository on any of the indexed registries.
 </pre>
 
-<h3 class="reason">Linux kernel bug</h3>
+<h3 class="reason">Linux kernel bug on Ubuntu Precise Pangolin (12.04 LTS) (64-bit)</h3>
 <p>Precise has a linux kernel bug that must be updated in order to use Docker. Follow these instructions (copied from <a href="http://docs.docker.io/en/latest/installation/ubuntulinux/#ubuntu-precise">here</a>) and <u>make sure to reboot</u> before trying again.
 
 <pre class="command-example">
 sudo apt-get update
 sudo apt-get install linux-image-generic-lts-raring linux-headers-generic-lts-raring
 sudo reboot
+</pre>
+
+<h3 class="reason">Missing AUFS on Raring 13.04 and Saucy 13.10 (64-bit)</h3>
+<p>Not all installations of Ubuntu 13.04/13.10 ship with AUFS enabled. Follow these instructions (copied from <a href="http://docs.docker.io/en/latest/installation/ubuntulinux/#ubuntu-raring-saucy">here</a>).
+
+<pre class="command-example">
+sudo apt-get update
+sudo apt-get install linux-image-extra-`uname -r`
 </pre>
 
         </section>
