@@ -605,3 +605,10 @@ footer a:hover {
   margin-left: -30px;
   color: #aaa;
 }
+
+.issue #main-content h4.workaround:before {
+  content: "\f005";
+  font-family: FontAwesome;
+  margin-right: 6px;
+  margin-left: -26px;
+}

@@ -42,6 +42,25 @@
           <h2>I'm authorized but I'm still getting 403s </h2>
           <p>Attempting to push or pull to.from Quay.io results in a <code>403</code> even after a successful <code>docker login</code></p>
 
+<h3 class="reason">You are using Docker version 0.8.1</h3>
+<p>Docker 0.8.1 introduced <a href="https://github.com/dotcloud/docker/issues/4267">a bug</a> in its storage of auth credentials in the <code>.dockercfg</code> file that results in no credentials being sent to Quay.io, despite a successful login.</p>
+
+<h4 class="workaround">Workaround</h4>
+<p>
+<ol>
+<li>Delete your <code>.dockercfg</code> file:
+<pre class="command-example">
+rm .dockercfg
+</pre>
+</li>
+<li>
+Login to Quay.io using the following command which <u>specifies the Quay.io registry path directly</u>:
+<pre class="command-example">
+docker login https://quay.io/v1/
+</pre>
+</li>
+</ol>
+</p>
 
 <h3 class="reason">You do not have permission on the repository</h3>
 Make sure that your user/robot account/token has permission on the repository. Permissions on a repository can be edited from the <a href="/glossary/repo-admin.html">repository admin panel</a>. Note that if you are trying to push/pull an organization repository, your account must either have permissions OR be a member of a <a href="/glossary/teams.html">team</a>.
