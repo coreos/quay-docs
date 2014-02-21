@@ -10,6 +10,10 @@ frontpage: True
 <p>Docker 0.8.1 introduced <a href="https://github.com/dotcloud/docker/issues/4267">a bug</a> in its storage of auth credentials in the <code>.dockercfg</code> file that results in no credentials being sent to Quay.io, despite a successful login.</p>
 
 <h4 class="workaround">Workaround</h4>
+<p style="padding: 10px; background: #eee; border: 1px solid #ddd; margin: 10px;">
+Note: This workaround may not work 100% of time. If you are still encountering auth issues (especially on <code>push</code>), please downgrade to docker 0.8.0 until we've identified the problem in docker.
+</p>
+
 <p>
 <ol>
 <li>Delete your <code>.dockercfg</code> file:
@@ -26,12 +30,12 @@ docker login https://quay.io/v1/
 </ol>
 </p>
 
-<h3 class="reason">You do not have permission on the repository</h3>
-Make sure that your user/robot account/token has permission on the repository. Permissions on a repository can be edited from the <a href="{{ site.domain }}/glossary/repo-admin.html">repository admin panel</a>. Note that if you are trying to push/pull an organization repository, your account must either have permissions OR be a member of a <a href="{{ site.domain }}/glossary/teams.html">team</a>.
-
 <h3 class="reason">You are executing <code>docker</code> in a different environment</h3>
 <p>Docker stores the credentials it uses for push and pull in a file typically placed at <code>$HOME/.dockercfg</code>. </p>
 
 <p>If you are executing docker in another environment (scripted <code>docker build</code>, virtual machine, makefile, virtualenv, etc), Docker will not be able to find the <code>.dockercfg</code> file and will fail.</p>
 
 <p><u>Make sure that the <code>.dockercfg</code> is accessible to the environment which is performing the push or pull.</u></p>
+
+<h3 class="reason">You do not have permission on the repository</h3>
+Make sure that your user/robot account/token has permission on the repository. Permissions on a repository can be edited from the <a href="{{ site.domain }}/glossary/repo-admin.html">repository admin panel</a>. Note that if you are trying to push/pull an organization repository, your account must either have permissions OR be a member of a <a href="{{ site.domain }}/glossary/teams.html">team</a>.
