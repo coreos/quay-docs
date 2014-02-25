@@ -8,6 +8,5 @@ title: Cannot modify repository
 <h3 class="reason">An access token or user does not have at least <code>write</code> permission on the repository</h3>
 Check the permissions for the user, robot account or token in the repository's <a href="{{ site.domain }}/glossary/repo-admin.html">admin page</a> and make sure it is listed with <code>write</code> or <code>admin</code>
 
-<h3 class="reason">My account is part of an organization</h3>
-Check with your organization administrator to ensure that either your account has <code>write</code> permission or
-a <a href="{{ site.domain }}/glossary/teams.html">team</a> in which you are a member has <code>write</code> permission for the repository.
+<h3 class="reason">You are authenticated and have <code>write</code>/<code>admin</code> permission but still see the error</h3>
+See <a href="{{ site.domain }}/issues/auth-failure.html">I'm authorized but I'm still getting 403s</a>.
