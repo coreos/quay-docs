@@ -1,0 +1,23 @@
+---
+layout: doc
+sublayout: issue
+title: docker login is failing with an odd error
+frontpage: True
+---
+<p>Attempting to <code>docker login</code> from Quay.io results in an odd error message</p>
+
+
+<h2>I get an error similar to this:</h2>
+<pre>
+docker login https://quay.io/v1/
+Username (username):
+2014/01/01 12:00:00 Error: Invalid Registry endpoint: Get https://quay.io/v1/_ping: dial tcp: read udp 192.168.2.1:53: no route to host
+</pre>
+
+<h3 class="reason">Docker on OS X (via boot2docker) is in a weird state</h3>
+<p>If you are using Docker on OSX via <a href="https://github.com/boot2docker/boot2docker">boot2docker</a>, the networking stack can
+sometimes get out of sync. To fix it, restart the boot2docker image:</p>
+
+<pre class="command-example">
+./boot2docker restart
+</pre>

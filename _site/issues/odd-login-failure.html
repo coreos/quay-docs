@@ -18,10 +18,10 @@
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <title>Glossary - Quay Documentation by DevTable</title>
+    <title>docker login is failing with an odd error - Quay Documentation by DevTable</title>
   </head>
 
-  <body class="">
+  <body class="issue">
     <header>
       <div class="content">
         <a href="https://quay.io"><img src="/images/quay-logo.png"></a>
@@ -39,101 +39,29 @@
     <div id="content-wrapper">
       <div class="inner clearfix">
         <section id="main-content">
-          <h2>Glossary </h2>
-          <ul>
-
-
-
-
-  <li><a href="/glossary/access-token.html">Access Tokens</a></li>
-
-
-
-
-
-  <li><a href="/glossary/org-admin.html">Organization Admin Panel</a></li>
-
-
-
-  <li><a href="/glossary/repo-admin.html">Repository Admin Panel</a></li>
-
-
-
-  <li><a href="/glossary/robot-accounts.html">Robot Accounts</a></li>
-
-
-
-  <li><a href="/glossary/teams.html">Teams</a></li>
-
-
-
-  <li><a href="/glossary/user-admin.html">User Admin Panel</a></li>
-
-
-
-  <li><a href="/glossary/webhooks.html">Webhooks</a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</ul>
+          <h2>docker login is failing with an odd error </h2>
+          <p>Attempting to <code>docker login</code> from Quay.io results in an odd error message</p>
+
+
+<h2>I get an error similar to this:</h2>
+<pre>
+docker login https://quay.io/v1/
+Username (username):
+2014/01/01 12:00:00 Error: Invalid Registry endpoint: Get https://quay.io/v1/_ping: dial tcp: read udp 192.168.2.1:53: no route to host
+</pre>
+
+<h3 class="reason">Docker on OS X (via boot2docker) is in a weird state</h3>
+<p>If you are using Docker on OSX via <a href="https://github.com/boot2docker/boot2docker">boot2docker</a>, the networking stack can
+sometimes get out of sync. To fix it, restart the boot2docker image:</p>
+
+<pre class="command-example">
+./boot2docker restart
+</pre>
 
         </section>
 
         <aside id="sidebar">
-          <a href="https://github.com/DevTable/quaydocs/blob/gh-pages/glossary/index.html" class="git-button"><small>Edit documentation on</small>GitHub</a>
+          <a href="https://github.com/DevTable/quaydocs/blob/gh-pages/issues/odd-login-failure.html" class="git-button"><small>Edit documentation on</small>GitHub</a>
         </aside>
       </div>
     </div>
