@@ -11,8 +11,15 @@ frontpage: True
 <pre>
 docker login https://quay.io/v1/
 Username (username):
-2014/01/01 12:00:00 Error: Invalid Registry endpoint: Get https://quay.io/v1/_ping: dial tcp: read udp 192.168.2.1:53: no route to host
+2014/01/01 12:00:00 Error: Invalid Registry endpoint: Get https://quay.io/v1/_ping: dial tcp: ping timeout
 </pre>
+
+<h3 class="reason">I'm on a high-latency slow connection</h3>
+<p>Docker has defined as maximum timeout of <b>five seconds</b> before a timeout will occur. Currently, the only solution is to find a connection with a better latency. Quay.io is currently working to raise this limit to 30 seconds or so.</p>
+
+
+<h3 class="reason">I'm running Docker under a Vagrant VM</h3>
+<p>There is a known issue with Vagrant whereby networking connections can sometimes become extremely slow. A solution can be found here: <a href="https://github.com/mitchellh/vagrant/issues/1807">https://github.com/mitchellh/vagrant/issues/1807</a>.</p>
 
 <h3 class="reason">Docker on OS X (via boot2docker) is in a weird state</h3>
 <p>If you are using Docker on OSX via <a href="https://github.com/boot2docker/boot2docker">boot2docker</a>, the networking stack can
