@@ -18,10 +18,10 @@
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <title>Skipping a Github-triggered build - Quay Documentation by DevTable</title>
+    <title>Pushing and Pulling Repositories - Quay Documentation by DevTable</title>
   </head>
 
-  <body class="solution">
+  <body class="guide">
     <header>
       <div class="content">
         <a href="https://quay.io"><img src="/images/quay-logo.png"></a>
@@ -39,15 +39,26 @@
     <div id="content-wrapper">
       <div class="inner clearfix">
         <section id="main-content">
-          <h2>Skipping a Github-triggered build </h2>
-          <p>
-To specifiy that a triggered build should be skipped, add the text <code>[skip build]</code> or <code>[build skip]</code> to your commit's message.
+          <h2>Pushing and Pulling Repositories </h2>
+          <h3>Pushing a repository to Quay <span class="label label-success">Requires Write Access</span></h3>
+<p>
+  In order to push a repository to Quay, it must be <b>tagged</b> with the <b>quay.io</b> domain and the namespace under which it will live:
+  <pre class="command-example">sudo docker tag <i>0u123imageid</i> quay.io/<i>username/repo_name</i></pre>
+  Once tagged, the repository can be pushed to Quay:
+  <pre class="command-example">sudo docker push quay.io/<i>username/repo_name</i></pre>
+</p>
+
+<h3>Pulling a repository from Quay</h3>
+<p>
+  <div class="alert alert-info">Note: <b>Private</b> repositories require you to be <a href="login.html">signed into Quay</a> or the pull will fail</div>
+  To pull a repository from Quay, run the following command:
+  <pre class="command-example">sudo docker pull quay.io/<i>username/repo_name</i></pre>
 </p>
 
         </section>
 
         <aside id="sidebar">
-          <a href="https://github.com/DevTable/quaydocs/blob/gh-pages/solutions/skip-build.html" class="git-button"><small>Edit documentation on</small>GitHub</a>
+          <a href="https://github.com/DevTable/quaydocs/blob/gh-pages/guides/pushpull.html" class="git-button"><small>Edit documentation on</small>GitHub</a>
         </aside>
       </div>
     </div>

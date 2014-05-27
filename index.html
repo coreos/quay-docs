@@ -3,7 +3,7 @@ layout: doc
 title: Quay.io Documentation
 ---
 
-<h3>Tutorials</h3>
+<h3>Solutions</h3>
 <ul>
 <li><a href="getting-started.html">Getting Started</a></li>
 </ul>
@@ -11,7 +11,7 @@ title: Quay.io Documentation
 <h3>Guides</h3>
 <ul>
 {% for page in site.pages %}
-{% if page.sublayout == 'solution' %}
+{% if page.sublayout == 'guide' %}
   <li><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></li>
 {% endif %}
 {% endfor %}
