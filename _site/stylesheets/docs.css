@@ -1,0 +1,172 @@
+header {
+  width: 100%;
+  background: #f4f4f4;
+  padding: 20px;
+}
+
+header.content {
+  text-align: left;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+header img {
+  width: 140px;
+}
+
+header ul {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+  margin-left: 40px;
+  display: inline-block;
+}
+
+header ul li {
+  display: inline-block;
+  padding: 6px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  margin-right: 20px;
+}
+
+
+header ul li a {
+  color: #444;
+}
+
+.article-content {
+  font-family: 'Montserrat', sans-serif;
+}
+
+p {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+h3 {
+  margin-top: 40px;
+}
+
+h4 {
+  margin-top: 30px;
+}
+
+pre.command-example {
+  margin-top: 20px;
+  position: relative;
+}
+
+pre.command-example:after {
+  content: "Example";
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  padding: 6px;
+  background: #f2f8fc;
+}
+
+pre.command-example:before {
+  content: "\f120";
+  font-family: "FontAwesome";
+  font-size: 16px;
+  margin-right: 6px;
+  color: #999;
+}
+
+.page-title {
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+.page-title:before {
+  font-family: FontAwesome;
+  border-radius: 50%;
+  width: 46px;
+  height: 46px;
+  line-height: 46px;
+  font-size: 26px;
+  font-weight: normal;
+  display: inline-block;
+  text-align: center;
+  margin-right: 10px;
+  content: "";
+}
+
+.page-title-small:before {
+    font-family: FontAwesome;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    font-size: 18px;
+    font-weight: normal;
+    display: inline-block;
+    text-align: center;
+    margin-right: 10px;
+    content: "";
+}
+
+.index .page-title:before {
+  width: 0px;
+}
+
+.solution .page-title:before, .page-title-small.solution:before {
+  content: "\f15c";
+  background: rgba(199, 203, 255, 0.5);
+}
+
+.glossary .page-title:before, .page-title-small.glossary:before {
+  content: "\f02d";
+  background: rgba(199, 255, 203, 0.5);
+}
+
+.issue .page-title:before, .page-title-small.issue:before {
+  content: "\f188";
+  background: rgba(255, 199, 199, 0.5);
+}
+
+.guide .page-title:before, .page-title-small.guide:before {
+  content: "\f129";
+  background: rgba(255, 237, 199, 0.5);
+}
+
+table {
+  width: 100%;
+  border: 1px solid #ebebeb;
+}
+
+th {
+  font-weight: 500;
+  padding: 4px;
+}
+
+td {
+  border: 1px solid #ebebeb;
+  font-weight: 300;
+  padding: 4px;
+  text-align: center;
+}
+
+.article-footer {
+  padding: 20px;
+  border-top: 1px solid #eee;
+  margin-top: 40px;
+}
+
+.article-footer .copyright {
+  font-size: 12px;
+  color: black;
+}
+
+.article-footer ul {
+  list-style-type: none;
+  margin: 0px;
+  padding-left: 0px;
+}
+
+.article-footer li {
+  margin: 0px;
+  display: inline-block;
+  padding: 10px;
+}

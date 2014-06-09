@@ -1,11 +1,13 @@
 ---
 layout: doc
 title: Glossary
+sublayout: glossary
+index: true
 ---
 
-<ul>
+<ul class="glossary">
 {% for page in site.pages %}
-{% if page.sublayout == 'glossary' %}
+{% if page.sublayout == 'glossary' and page.index != true %}
   <li><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></li>
 {% endif %}
 {% endfor %}

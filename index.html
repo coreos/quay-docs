@@ -1,35 +1,40 @@
 ---
 layout: doc
 title: Quay.io Documentation
+sublayout: index
 ---
 
-<h3>Solutions</h3>
-<ul>
-<li><a href="getting-started.html">Getting Started</a></li>
-</ul>
-
-<h3>Guides</h3>
+<h3 class="page-title-small solution">Solutions</h3>
 <ul>
 {% for page in site.pages %}
-{% if page.sublayout == 'guide' %}
+{% if page.sublayout == 'solution' and page.index != true %}
   <li><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></li>
 {% endif %}
 {% endfor %}
 </ul>
 
-<h3>Troubleshooting</h3>
+<h3 class="page-title-small guide">Guides</h3>
 <ul>
 {% for page in site.pages %}
-{% if page.sublayout == 'issue' and page.frontpage %}
+{% if page.sublayout == 'guide' and page.index != true  %}
   <li><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></li>
 {% endif %}
 {% endfor %}
 </ul>
 
-<h3>Glossary</h3>
+<h3 class="page-title-small issue">Troubleshooting</h3>
 <ul>
 {% for page in site.pages %}
-{% if page.sublayout == 'glossary' %}
+{% if page.sublayout == 'issue' and page.frontpage  and page.index != true %}
+  <li><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></li>
+{% endif %}
+{% endfor %}
+</ul>
+
+<h3 class="page-title-small glossary">Glossary</h3>
+<ul>
+{% for page in site.pages %}
+{% if page.sublayout == 'glossary' and page.index != true %}
   <li><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></li>
 {% endif %}
 {% endfor %}
