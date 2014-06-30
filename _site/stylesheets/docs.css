@@ -35,10 +35,6 @@ header ul li a {
   color: #444;
 }
 
-.article-content {
-  font-family: 'Montserrat', sans-serif;
-}
-
 p {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -51,6 +47,23 @@ h3 {
 h4 {
   margin-top: 30px;
 }
+
+.article-image {
+  text-align: center;
+  margin-top: 30px;
+}
+
+p.note {
+  margin: 10px;
+  padding: 6px;
+  background: #FFF7BD;
+}
+
+pre.dockerfile-example {
+  margin-bottom: 20px;
+  position: relative;
+}
+
 
 pre.command-example {
   margin-top: 20px;
