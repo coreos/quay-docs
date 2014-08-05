@@ -183,3 +183,39 @@ td {
   display: inline-block;
   padding: 10px;
 }
+
+.event-icon, .method-icon {
+  margin-right: 10px;
+}
+
+.event-description, .method-description {
+  margin-top: 6px;
+  margin-bottom: 20px;
+}
+
+pre.event-data {
+  margin-top: 20px;
+  position: relative;
+  padding-top: 40px;
+}
+
+pre.event-data:after {
+  content: "Webhook Data";
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  padding: 6px;
+  background: #ccc;
+}
+
+.entity-icon {
+  margin: 4px;
+}
+
+pre.event-data .event-specific-data {
+  color: green;
+}
+
+pre.event-data .event-really-specific-data {
+  color: #3a87ad;
+}

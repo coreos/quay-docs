@@ -1,0 +1,150 @@
+---
+layout: doc
+sublayout: guide
+title: Repository Notifications
+---
+<span class="label label-info">Requires Admin Access</span>
+
+<p>
+  Quay.io supports adding <strong>notifications</strong> to a repository for various events that occur in the repository's lifecycle. To add notifications, click the "Notifications" tab in the <a href="/glossary/repo-admin.html">Repository Admin Panel</a>.
+</p>
+
+
+<h3>Repository Events</h3>
+
+<!-- Repo Push -->
+<a name="#repo_push"></a>
+<h4><i class="fa fa-lg fa-upload event-icon"></i>Repository Push</h4>
+<div class="event-description">A successful push of one or more images was made to the repository</div>
+<a name="#webhook_repo_push"></a>
+<pre class="event-data">
+{
+  'repository': 'mynamespace/repository',
+  'namespace': 'mynamespace',
+  'name': 'repository',
+  'docker_url': 'quay.io/mynamespace/repository',
+  'homepage': 'https://quay.io/repository/mynamespace/repository',
+  'visibility': 'public',
+  <span class="event-specific-data">
+  'updated_tags': {
+    "latest": "b750fe79269d2ec9a3c593ef05b4332b1d1a02a62b4accb2c21d589ff2f5f2dc"
+  },
+  'pushed_image_count': 10,
+  'pruned_image_count': 3
+  </span>
+}
+</pre>
+
+<!-- Build Queued -->
+<a name="#build_queued"></a>
+<h4><i class="fa fa-lg fa-tasks event-icon"></i>Dockerfile Build Queued</h4>
+<div class="event-description">A Dockerfile build has been queued into the build system</div>
+<a name="#webhook_build_queued"></a>
+<pre class="event-data">
+{
+  'repository': 'mynamespace/repository',
+  'namespace': 'mynamespace',
+  'name': 'repository',
+  'docker_url': 'quay.io/mynamespace/repository',
+  'homepage': 'https://quay.io/repository/mynamespace/repository/build?current=some-fake-build',
+  'visibility': 'public',
+  <span class="event-specific-data">
+  'is_manual': False,
+  'build_id': build_uuid,
+  'build_name': 'some-fake-build',
+  'docker_tags': ['latest', 'foo', 'bar'],
+  'trigger_kind': 'github'
+  </span>
+}
+</pre>
+
+<!-- Build Started -->
+<a name="#build_started"></a>
+<h4><i class="fa fa-lg fa-circle-o-notch event-icon"></i>Dockerfile Build Started</h4>
+<div class="event-description">A Dockerfile build has been started by the build system</div>
+<a name="#webhook_build_started"></a>
+<pre class="event-data">
+{
+  'repository': 'mynamespace/repository',
+  'namespace': 'mynamespace',
+  'name': 'repository',
+  'docker_url': 'quay.io/mynamespace/repository',
+  'homepage': 'https://quay.io/repository/mynamespace/repository/build?current=some-fake-build',
+  'visibility': 'public',
+  <span class="event-specific-data">
+  'build_id': build_uuid,
+  'build_name': 'some-fake-build',
+  'docker_tags': ['latest', 'foo', 'bar'],
+  'trigger_kind': 'github'
+  </span>
+}
+</pre>
+
+<!-- Build Success -->
+<a name="#build_success"></a>
+<h4><i class="fa fa-lg fa-check-circle-o event-icon"></i>Dockerfile Build Successfully Completed</h4>
+<div class="event-description">A Dockerfile build has been successfully completed by the build system</div>
+<div class="alert alert-info">Note: This event will occur simultaneously with a <i class="fa fa-lg fa-upload"></i> Repository Push event for the built image(s)</div>
+
+<a name="#webhook_build_success"></a>
+<pre class="event-data">
+{
+  'repository': 'mynamespace/repository',
+  'namespace': 'mynamespace',
+  'name': 'repository',
+  'docker_url': 'quay.io/mynamespace/repository',
+  'homepage': 'https://quay.io/repository/mynamespace/repository/build?current=some-fake-build',
+  'visibility': 'public',
+  <span class="event-specific-data">
+  'build_id': build_uuid,
+  'build_name': 'some-fake-build',
+  'docker_tags': ['latest', 'foo', 'bar'],
+  'trigger_kind': 'github'
+  </span>
+}
+</pre>
+
+<!-- Build Failure -->
+<a name="#build_failure"></a>
+<h4><i class="fa fa-lg fa-times-circle-o event-icon"></i>Dockerfile Build Failed</h4>
+<div class="event-description">A Dockerfile build has failed</div>
+
+<a name="#webhook_build_failure"></a>
+<pre class="event-data">
+{
+  'repository': 'mynamespace/repository',
+  'namespace': 'mynamespace',
+  'name': 'repository',
+  'docker_url': 'quay.io/mynamespace/repository',
+  'homepage': 'https://quay.io/repository/mynamespace/repository/build?current=some-fake-build',
+  'visibility': 'public',
+  <span class="event-specific-data">
+  'build_id': build_uuid,
+  'build_name': 'some-fake-build',
+  'docker_tags': ['latest', 'foo', 'bar'],
+  'trigger_kind': 'github',
+  </span><span class="event-really-specific-data">
+  'error_message': 'This is the reason the build failed'
+  </span>
+}
+</pre>
+
+<h3>Notification Actions</h3>
+
+<!-- Quay.io Notification -->
+<a name="quay_notification"></a>
+<h4><img class="method-icon" src="https://quay.io/static/img/favicon.ico" style="width: 22px; height: 22px;">Quay.io Notification</h4>
+<div class="method-description">A notification will be added to the Quay.io notification area (found by clicking on your username and choosing "Notifications").</div>
+<p>
+Quay.io Notifications can be setup to be sent to a <i class="fa fa-user entity-icon"></i>User, <i class="fa fa-group entity-icon"></i><a href="/glossary/teams.html">Team</a>, or the organization as a whole.
+
+<!-- E-mail Notification -->
+<a name="email"></a>
+<h4><i class="fa fa-lg method-icon fa-envelope"></i>E-mail</h4>
+<div class="method-description">An e-mail will be sent to the specified address describing the event that occurred.</div>
+<div class="alert alert-info">Note: All e-mail addresses will have to be verified on a per-repository basis</div>
+
+<!-- Webhook Notification -->
+<a name="webhook"></a>
+<h4><i class="fa fa-lg method-icon fa-link"></i>Webhook POST</h4>
+<div class="method-description">An HTTP POST call will be made to the specified URL with the event's data (see above for each event's data format)</div>
