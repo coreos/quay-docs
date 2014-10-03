@@ -150,7 +150,7 @@ CMD ["/sbin/my_init"]</pre>
 
 <p class="p3">Building a Dockerfile into an image is quite simple. In the directory that contains the Dockerfile and its data files (requirements.txt, static, etc), one simply executes:</p>
 
-<pre class="command-example">docker build . -t quay.io/mynamespace/myreponame</pre>
+<pre class="command-example">docker build -t quay.io/mynamespace/myreponame .</pre>
 
 <p class="p3">The command above tells Docker to <b>build</b> the Dockerfile and data found in the current directory and, if sucessful, to <b>tag</b> it as the repository named <span class="s4">quay.io/mynamespace/myreponame.</span></p>
 
