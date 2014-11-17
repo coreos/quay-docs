@@ -1,45 +1,74 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.no-icons.min.css">
-    <link rel="stylesheet" type="text/css" href="/stylesheets/docs.css" media="screen" />
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css" rel="stylesheet">
+  <title>Quay.io Documentation</title>
 
-    <script src="//code.jquery.com/jquery.js"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-    <script src="/javascripts/main.js"></script>
+  <link href="https://coreos.com/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+  <link href="https://coreos.com/assets/css/docs.css" rel="stylesheet">
+  <link href="https://coreos.com/assets/css/pygments-manni.css" rel="stylesheet">
 
-    <title>Repeatable and Testable Deployments using Quay.io</title>
-  </head>
+  <link href="https://coreos.com/assets/css/coreos.css" rel="stylesheet">
 
-  <body class="solution">
-    <header>
-      <div class="content">
-        <a href="https://quay.io"><img src="/images/quay-logo.png"></a>
+  <link href="https://coreos.com/assets/css/syntax-highlight.css" rel="stylesheet">
 
-        <ul>
-          <li><a href="/">Community Documentation</a></li>
+  <link href="/stylesheets/docs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="https://coreos.com/assets/js/html5shiv.js"></script>
+  <script src="https://coreos.com/assets/js/respond.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,400italic,600,700,900" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600,700" rel="stylesheet" type="text/css">
+
+  <link href="https://coreos.com/assets/css/gh-fork-ribbon.css" rel="stylesheet">
+<!--[if IE]>
+      <link rel="stylesheet" href="https://coreos.com/assets/css/gh-fork-ribbon.ie.css" />
+<![endif]-->
+
+  <style type="text/css">
+  </style>
+</head>
+
+<body data-spy="scroll" data-target=".coreos-docs-sidebar">
+  <div class="navbar navbar-fixed-top coreos-nav" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".coreos-nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/" target=""><img id="quay-logo" src="https://quay.io/static/img/quay-logo.png"></a>
+      </div>
+      <div class="navbar-collapse collapse coreos-nav-collapse">
+        <ul class="nav navbar-nav">
+         <li><a href="/">Community Documentation</a></li>
           <li><a href="/solution">Articles and Solutions</a></li>
           <li><a href="/guides">Guides</a></li>
           <li><a href="/glossary">Glossary</a></li>
-          <li><a href="https://quay.io/contact">Support</a></li>          
-        </ul>
-      </div>
-    </header>
+          <li><a href="https://quay.io/contact">Support</a></li>  
+        </ul> 
+      </div> 
+    </div> 
+  </div> 
+  <div class="github-fork-ribbon-wrapper right fixed">
+    <div class="github-fork-ribbon">
+      <a href="https://github.com/Devtable/docs/blob/gh-pages/solution/repeatable-deployments.html">Fork me on GitHub</a>
+    </div>
+  </div>
 
-    <div class="article-content container">
-      <h2 class="page-title">Repeatable and Testable Deployments using Quay.io</h2>
-      
-      <h3><b>The perils of deployment</b></h3>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9 col-md-9 col-sm-12">
+        <div class="coreos-docs">
+          <h1>Repeatable and Testable Deployments using Quay.io</h1>
+          <h3><b>The perils of deployment</b></h3>
 
 <p class="p3">Deploying to production: words that for many developers can chill their hearts to the core. Even with extensive testing and today’s scriptable deployment systems (Chef, Puppet, etc), deployment to production machines can still result in cryptic errors, odd behaviors and lots of inventive swearing. All this stress and headache stems from one primary issue: Production environments rarely, if ever, replicate staging or development environments completely. Unit tests are run on development machines or in continuous integration systems; integration tests are run on staging machines or by hand. These different environments try to replicate production as closely as possible, but even the slightest difference can result in disaster. Differences in libraries, file layouts, even minor revisions of the operating system, can result in unexpected behavior and downtime. We once had a production push breakage (in our previous product) as a result of <b>the</b> <b>method used to link a dependency</b>. Even though we had matched the versions of the library and the operating system exactly, we still encountered problems.</p>
 
@@ -212,18 +241,29 @@ CMD ["/sbin/my_init"]</pre>
 
 <p class="p3">We think that Docker and Dockerfiles provide a unique ability for both developers and devops engineers to be more confident in their production deployment. When used with Quay.io’s automatic build systems, engineers can be confident that code is both tested and ready for deployment as soon as possible. <a href="https://quay.io/"><span class="s2">Try Quay.io today!</span></a></p>
 
-      <div class="article-footer">
-     <ul>
-                <li><span class="copyright">&copy;2014 DevTable, LLC</span></li>
-                <li><a href="http://blog.devtable.com/" target="_blank">Blog</a></li>
-                <li><a href="https://quay.io/tos" target="_self">Terms</a></li>
-                <li><a href="https://quay.io/privacy" target="_self">Privacy</a></li>
-                <li><a href="https://quay.io/security/" target="_self">Security</a></li>
-                <li><a href="https://quay.io/about/" target="_self">About</a></li>
-                <li><b><a href="https://github.com/DevTable/quaydocs/blob/gh-pages/solution/repeatable-deployments.html">Edit on GitHub</a></b></li>
-              </ul>
-            </div>
+        </div>
       </div>
-    </div>
-  </body>
+      <div class="coreos-docs-sidebar col-lg-3 col-md-3 col-sm-12 hidden-xs">
+        <ul class="nav coreos-docs-sidenav"></ul>
+      </div>
+    </div> 
+  </div>
+
+  <script src="https://coreos.com/assets/js/jquery.js"></script>
+  <script src="https://coreos.com/dist/js/bootstrap.min.js"></script>
+  <script src="https://coreos.com/assets/js/holder.js"></script>
+  <script src="https://coreos.com/assets/js/application.js"></script>
+  <script src="https://coreos.com/assets/js/masonry.pkgd.min.js"></script>
+
+  <script src="https://coreos.com/assets/js/jquery-ui-1.9.1.custom.min.js"></script>
+  <script src="https://coreos.com/assets/js/jquery.tocify.js"></script>
+
+  <script type="text/javascript">
+  $(document).ready(function() {
+    $('[data-toggle=tooltip]').tooltip();
+  });
+  </script>
+  <script src="https://coreos.com/assets/js/docs.js"></script>
+  <script type="text/javascript" src="https://coreos.com/assets/js/events.js"></script>
+</body>
 </html>
