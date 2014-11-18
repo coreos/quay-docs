@@ -1,5 +1,6 @@
 #quay-logo {
   width: 100px;
+  -webkit-filter: none;
 }
 
 .article-image {
