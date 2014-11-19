@@ -1,0 +1,150 @@
+---
+layout: doc
+title: Quay.io API
+sublayout: api
+index: true
+---
+
+The Quay.io API is a full <a href="http://oauth.net/2/">OAuth 2</a>, RESTful API.
+<strong>The API is currently in prerelease</strong>
+
+<h2>Overview</h2>
+<h4>API Endpoint</h4>
+<p>
+All APIs are accessed from the <code>https://quay.io/api/v1/</code> endpoint. For Enterprise customers,
+the endpoint is <code>http(s)://yourdomain/api/v1/</code>.
+</p>
+
+<h4>Data format</h4>
+<p>All data is sent and received as JSON.</p>
+
+<h2>API Explorer</h2>
+<p>
+The full list of defined methods and endpoints can be found in the <a href="/api/swagger">API Explorer</a>
+</p>
+
+<h2>Scopes</h2>
+<p>
+The majority of calls to the Quay.io API require a token with one or more <strong>scopes</strong>, which specify
+the permissions granted to the token to perform some work.
+</p>
+
+<script>
+  $(document).ready(function() {
+      $.ajax({
+        url: "http://localhost:5000/api/v1/discovery"
+        }).done(function(f) {
+            var scopes = f.authorizations.oauth2.scopes;
+            $.each(scopes, function(i, item) {
+                var $tr = $('<tr>').append(
+                    $('<td>').text(item.scope),
+                    $('<td>').text(item.title)
+                ).appendTo('#scopesTable');
+            });
+        });
+  });
+</script>
+
+<p>
+<table id="scopesTable">
+    <thead>
+        <td>Scope</td><td>Description</td>
+    </thead>
+    <tr>
+        <td>repo:read</td>
+        <td>
+            The application will be able to view and pull all repositories visible to the granting user or robot account
+        </td>
+    </tr>
+</table>
+</p>
+
+<h2>Applications and Tokens</h2>
+
+<h4>Creating a new application</h4>
+All calls to the Quay.io REST API must occur via a token created for a defined <strong>Application</strong>. 
+
+A new
+application can be created under the <a href="/glossary/org-admin.html">Organization Admin Panel</a>
+in the <strong>Applications</strong> section.
+
+<img src="newapp.png">
+
+<h3>OAuth 2 Access Tokens</h3>
+<p>All calls to API methods which are not read-only and public require the use of an OAuth 2 <strong>access token</strong>,
+specified via a header. Access tokens for the Quay.io are long-lived and do not expire.</p>
+
+<h4>Generating a Token (OAuth web flow)</h4>
+
+<p>If your application will be used by various users of Quay.io or the Enterprise Registry, then generating a token
+requires running the OAuth 2 web flow (See the <a href="https://developers.google.com/accounts/docs/OAuth2WebServer">example for Google</a>)</p>
+
+<p>To do so, your application must make a request like so (replace <code>quay.io</code> with your domain for Enterprise Registry):</p>
+
+<pre style="padding: 10px">
+GET https://quay.io/oauth/authorize?response_type=token&redirect_uri={your redirect URI}&realm=realm&client_id={application client ID}&scope={comma delineated set of scopes to request}
+</pre>
+
+<p>Once the user has approved the permissions for your application, the browser will load the specified redirect URI with the access token appended like so:</p>
+
+<pre style="padding: 10px">
+http://example.com/the/redirect/uri/path#access_token={created access token}
+</pre>
+
+<p>This access token can then be saved to make API requests.</p>
+
+
+<h4>Generating a Token (for internal application use)</h4>
+
+<div class="alert alert-warning">Warning: The generated token will be created on behalf of the currently logged in user</div>
+
+If the API call will be conducted by an internal application, an access token can be generated simply by clicking on
+the <strong>Generate Token</strong> tab under the application, choosing scopes, and then clicking the
+<strong>Generate Access Token</strong> button. After conducting the OAuth flow for the current account,
+the newly generated token will be displayed.
+
+<img src="generate-token.png">
+
+<h2>Making an API request</h2>
+
+<p>API requests are made by executing the documented HTTP verb (GET, POST, PUT or DELETE) against the API endpoint URL,
+with an Authorization header <strong>containing the access token</strong> and (if necessary) body content in JSON form.</p>
+
+<h4>Example: Find all repositories belonging to the token's user</h4>
+
+<pre style="padding: 10px">
+Authorization: Bearer AccessTokenGoesHere
+GET https://quay.io/api/v1/repository?private=true&public=false
+</pre>
+
+
+<h4>Example: Adding a team permission to a repository</h4>
+
+<pre style="padding: 10px">
+Authorization: Bearer AccessTokenGoesHere
+PUT https://quay.io/api/v1/repository/some/repo/permissions/team/someteam
+
+{
+  "role": "read"
+}
+</pre>
+
+<h2>Pulling and Pushing using an access token</h2>
+
+<p>OAuth 2 access tokens granted by Quay.io applications can invoke <code>docker pull</code> and
+<code>docker push</code> on behalf of the user if they have the
+<code>repo:read</code> and <code>repo:write</code>
+scopes (respectively).</p>
+
+<p>To login, the <code>docker login</code> command can be used with the username
+<code>$oauthtoken</code> and the access token as the password:</p>
+
+<pre class="command-example">
+docker login quay.io
+Username: $oauthtoken
+Password: ThisIsTheAccessToken
+Email: ignore@this.com
+</pre>
+
+
+

@@ -3,6 +3,10 @@
   -webkit-filter: none;
 }
 
+h3 {
+  margin-top: 50px !important;
+}
+
 .article-image {
   text-align: center;
   margin-top: 30px;
