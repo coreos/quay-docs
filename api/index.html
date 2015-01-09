@@ -32,7 +32,7 @@ the permissions granted to the token to perform some work.
 <script>
   $(document).ready(function() {
       $.ajax({
-        url: "http://localhost:5000/api/v1/discovery"
+        url: "http://quay.io/api/v1/discovery"
         }).done(function(f) {
             var scopes = f.authorizations.oauth2.scopes;
             $.each(scopes, function(i, item) {
