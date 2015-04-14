@@ -1,6 +1,9 @@
 #quay-logo {
   width: 100px;
   -webkit-filter: none;
+  background-image: url(https://quay.io/static/img/quay-logo.png);
+  background-size: cover;
+  margin-top: 5px;
 }
 
 h3 {
