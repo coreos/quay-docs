@@ -18,12 +18,16 @@ title: Setting up a Custom Git Trigger
 
 <h3>Post-creation setup</h3>
 
-<p>Once a trigger has been created, there are still 2 steps required before the trigger can be used:</p>
+<p>Once a trigger has been created, there are 2 additional steps required before the trigger can be used:</p>
 <ol>
   <li>Provide read access to the <b>SSH public key</b> generated when creating the trigger.</li>
   <li>Setup a <b>webhook</b> that POSTs to the Quay.io endpoint to trigger a build.</li>
 </ol>
 <p>The key and the URL are both available at all times by selecting 'View Credentials' from the gear located in the trigger listing.</p>
+
+<div class="article-image">
+  <a href="view-credentials.png"><img src="view-credentials.png" style="height:50%; width:50%"></a>
+</div>
 
 <h4>SSH public key access</h4>
 
@@ -31,7 +35,7 @@ title: Setting up a Custom Git Trigger
 
 <h4>Webhook</h4>
 
-<p>In order to automatically trigger a build, one must POST a JSON payload to <code>https://%24token:&lt;TOKEN&gt;@quay.io/webhooks/push/trigger/&lt;UUID&gt;</code> with the following format:</p>
+<p>In order to automatically trigger a build, one must POST a JSON payload to the webhook URL with the following format:</p>
 
 <pre>
 {
