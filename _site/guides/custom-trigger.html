@@ -61,7 +61,7 @@
   </div>
   <div class="github-fork-ribbon-wrapper right fixed">
     <div class="github-fork-ribbon">
-      <a href="https://github.com/coreos/quay-docs/blob/gh-pages/index.html">Fork me on GitHub</a>
+      <a href="https://github.com/coreos/quay-docs/blob/gh-pages/guides/custom-trigger.html">Fork me on GitHub</a>
     </div>
   </div>
 
@@ -69,423 +69,65 @@
     <div class="row">
       <div class="col-lg-9 col-md-9 col-sm-12">
         <div class="coreos-docs">
-          <h1>Quay.io Documentation</h1>
-          <h3 class="page-title-small solution">Solutions</h3>
-<ul>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <li><a href="/solution/getting-started.html">Getting Started with Quay.io</a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <li><a href="/solution/repeatable-deployments.html">Repeatable and Testable Deployments using Quay.io</a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <li><a href="/solution/zero-downtime-deployments.html">Zero Downtime Deployments</a></li>
-
-
-</ul>
-
-<h3 class="page-title-small guide">Guides</h3>
-<ul>
-
-
-
-
-
-
-
-
-  <li><a href="/guides/create-repo.html">Creating a repository</a></li>
-
-
-
-  <li><a href="/guides/custom-trigger.html">Setting up a Custom Git Trigger</a></li>
-
-
-
-  <li><a href="/guides/delete-tag.html">Deleting a tag</a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <li><a href="/guides/login.html">Signing into Quay</a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <li><a href="/guides/notifications.html">Repository Notifications</a></li>
-
-
-
-
-
-
-
-
-
-
-
-  <li><a href="/guides/pushpull.html">Pushing and Pulling Repositories</a></li>
-
-
-
-
-
-
-
-
-
-
-
-  <li><a href="/guides/skip-build.html">Skipping a Github-triggered build</a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</ul>
-
-<h3 class="page-title-small issue">Troubleshooting</h3>
-<ul>
-
-
-
-
-  <li><a href="/issues/auth-failure.html">I'm authorized but I'm still getting 403s</a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <li><a href="/issues/odd-login-failure.html">docker login is failing with an odd error</a></li>
-
-
-
-  <li><a href="/issues/odd-pull-failure.html">Pulls are failing with an odd error</a></li>
-
-
-
-
-
-  <li><a href="/issues/push-timestamp-wrong.html">I just pushed but the timestamp is wrong</a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</ul>
-
-<h3 class="page-title-small enterprise">Enterprise</h3>
-<p>Enterprise deployment documentation can be found in the <a href="https://coreos.com/docs/#enterprise-registry">CoreOS documentation</a>.<br/></p>
-
-<h3 class="page-title-small glossary">Glossary</h3>
-<ul>
-
-
-  <li><a href="/glossary/access-token.html">Access Tokens</a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <li><a href="/glossary/org-admin.html">Organization Admin Panel</a></li>
-
-
-
-
-
-
-
-
-
-  <li><a href="/glossary/repo-admin.html">Repository Admin Panel</a></li>
-
-
-
-  <li><a href="/glossary/robot-accounts.html">Robot Accounts</a></li>
-
-
-
-
-
-
-
-  <li><a href="/glossary/teams.html">Teams</a></li>
-
-
-
-
-
-
-
-  <li><a href="/glossary/user-admin.html">User Admin Panel</a></li>
-
-
-
-  <li><a href="/glossary/webhooks.html">Webhooks</a></li>
-
-
-
-
-</ul>
+          <h1>Setting up a Custom Git Trigger</h1>
+          <p>
+  A Custom Git Trigger is a generic way for any git server to act as a build trigger.<br>
+  It relies solely on SSH keys and its webhook endpoint; everything else is left to the user to implement.
+</p>
+
+<h3>Creating a Trigger</h3>
+
+<p>Creating a Custom Git Trigger is similar to the creation of any other trigger with a few subtle differences:</p>
+<ol>
+  <li>It is not possible for Quay.io to automatically detect the proper robot account to use with the trigger. This must be done manually in the creation process.</li>
+  <li>There are extra steps after the creation of the trigger that must be done in order to use the trigger. These steps are detailed below.</li>
+</ol>
+
+<h3>Post-creation setup</h3>
+
+<p>Once a trigger has been created, there are 2 additional steps required before the trigger can be used:</p>
+<ol>
+  <li>Provide read access to the <b>SSH public key</b> generated when creating the trigger.</li>
+  <li>Setup a <b>webhook</b> that POSTs to the Quay.io endpoint to trigger a build.</li>
+</ol>
+<p>The key and the URL are both available at all times by selecting 'View Credentials' from the gear located in the trigger listing.</p>
+
+<div class="article-image">
+  <a href="view-credentials.png"><img src="view-credentials.png" style="height:50%; width:50%"></a>
+</div>
+
+<h4>SSH public key access</h4>
+
+<p>Depending on the git server setup, there are various ways to install the SSH public key that Quay.io generates for a custom git trigger. For example, <a href="https://git-scm.herokuapp.com/book/en/v2/Git-on-the-Server-Getting-Git-on-a-Server">the git documentation</a> describes a small server setup in which simply adding the key to <code>$HOME/.ssh/authorize_keys</code> would provide access for builders to clone the repository. For any git repository management software that isn't officially supported, there is usually a location to input the key often labeled as "Deploy Keys".</p>
+
+<h4>Webhook</h4>
+
+<p>In order to automatically trigger a build, one must POST a JSON payload to the webhook URL with the following format:</p>
+
+<pre>
+{
+  "commit": "1234567",                                   // required
+  "ref": "refs/heads/master",                            // required
+  "default_branch": "master",                            // required
+  "commit_info": {                                       // optional
+    "url": "gitsoftware.com/repository/commits/1234567", // required
+    "message": "initial commit",                         // required
+    "date": "timestamp",                                 // required
+    "author": {                                          // optional
+      "username": "user",                                // required
+      "avatar_url": "gravatar.com/user.png",             // required
+      "url": "gitsoftware.com/users/user"                // required
+    },
+    "committer": {                                       // optional
+      "username": "user",                                // required
+      "avatar_url": "gravatar.com/user.png",             // required
+      "url": "gitsoftware.com/users/user"                // required
+    }
+  }
+}
+</pre>
+
+<p>Once again, this can be accomplished various ways depending on the server setup, but for most cases can be done via a <a href="https://git-scm.herokuapp.com/book/en/v2/Customizing-Git-Git-Hooks#idp26374144">post-receive git hook</a>.</p>
 
         </div>
       </div>
