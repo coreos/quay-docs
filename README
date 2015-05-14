@@ -1,6 +1,0 @@
-Documentation for Quay.io.
-
-To edit using Jekyll:
-```
-jekyll serve --watch --baseurl=""
-```
