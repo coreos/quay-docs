@@ -70,10 +70,11 @@
       <div class="col-lg-9 col-md-9 col-sm-12">
         <div class="coreos-docs">
           <h1>Getting Started with Quay.io</h1>
-          <div class="alert alert-warning">Warning: Quay requires docker version 0.6.2 or higher to work</div>
+          <div class="alert alert-warning">Warning: Quay.io only supports docker version 1.0 or greater</div>
 
-<h3>Sign into Quay.io</h3>
-<p>To sign into Quay.io, execute the <code>docker login quay.io</code> command:
+<h3 id="sign-into-quay.io">Sign into Quay.io</h3>
+
+<p>To sign into Quay.io, execute the <code>docker login quay.io</code> command:</p>
 
 <pre class="command-example">
 docker login quay.io
@@ -83,33 +84,37 @@ Password: mypassword
 Email: myemail@example.com
 </pre>
 
+<h3 id="create-a-new-container">Create a new container</h3>
 
-<h3>Create a new container</h3>
-<p>First we'll create a container with a single new file based off of the <code>ubuntu</code> base image:</p>
+<p>First we&#39;ll create a container with a single new file based off of the <code>ubuntu</code> base image:</p>
 
 <pre class="command-example">
 docker run ubuntu echo "fun" > newfile
 </pre>
 
-<p>The container will immediately terminate (because its one command is <code>echo</code>), so we'll use <code>docker ps -l</code> to list it:
+<p>The container will immediately terminate (because its one command is <code>echo</code>), so we&#39;ll use <code>docker ps -l</code> to list it:</p>
 
 <pre class="command-example">
 docker ps -l
-CONTAINER ID        IMAGE               COMMAND             CREATED 
-<var class="var1">07f2065197ef</var>       ubuntu:12.04        echo fun            31 seconds ago   
+CONTAINER ID        IMAGE               COMMAND             CREATED
+<var class="var1">07f2065197ef</var>       ubuntu:12.04        echo fun            31 seconds ago
 </pre>
 
-<p>Make note of the <var class="var1">container id</var>; we'll need it for the commit command.</p>
+<p>Make note of the <em><strong>container id</strong></em>; we&#39;ll need it for the commit command.</p>
 
-<h3>Tag the container to an image</h3>
+<h3 id="tag-the-container-to-an-image">Tag the container to an image</h3>
+
 <p>We next need to tag the container to a known image name</p>
-<p>Note that the <var class="var2">username</var> must be your Quay.io username and <var class="var3">reponame</var> is the new name of your repository.</p>
+
+<p>Note that the <em><strong>username</strong></em> must be your Quay.io username and <em><strong>reponame</strong></em> is the new name of your repository.</p>
+
 <pre class="command-example">
 docker commit <var class="var1">07f2065197ef</var> quay.io/<var class="var2">username</var>/<var class="var3">reponame</var>
 e7050e05a288f9f3498ccd2847fee966d701867bc671b02abf03a6629dc921bb
 </pre>
 
-<h3>Push the image to Quay.io</h3>
+<h3 id="push-the-image-to-quay.io">Push the image to Quay.io</h3>
+
 <pre class="command-example">
 docker push quay.io/<var class="var2">username</var>/<var class="var3">reponame</var>
 The push refers to a repository [quay.io/<var class="var2">username</var>/<var class="var3">reponame</var>] (len: 1)
@@ -118,9 +123,9 @@ Pushing repository quay.io/<var class="var2">username</var>/<var class="var3">re
 8dbd9e392a96: Pushing [=======>         ] 21.27 MB/134.1 MB 40s
 </pre>
 
-<h3>Pull the image from Quay.io</h3>
-<p>If any changes were made on another machine, a <code>docker pull</code> can be used to update
-the repository locally</p>
+<h3 id="pull-the-image-from-quay.io">Pull the image from Quay.io</h3>
+
+<p>If any changes were made on another machine, a <code>docker pull</code> can be used to update the repository locally</p>
 
 <pre class="command-example">
 docker pull quay.io/<var class="var2">username</var>/<var class="var3">reponame</var>
