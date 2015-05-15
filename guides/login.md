@@ -4,4 +4,4 @@ sublayout: guide
 title: Signing into Quay
 ---
 
-{% include login.html %}
+{% include login.md %}
