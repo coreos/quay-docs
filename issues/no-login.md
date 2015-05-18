@@ -5,7 +5,7 @@ title: Cannot create repository as a guest
 ---
 To create a repository on Quay.io, you must use an authenticated user or [robot account](/glossary/robot-accounts.html).
 
-### I am not signed into Quay.io in the Docker CLI
+### I am not signed into Quay.io in the docker CLI
 
 {% include login.md %}
 

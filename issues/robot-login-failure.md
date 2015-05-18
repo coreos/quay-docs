@@ -1,0 +1,14 @@
+---
+layout: doc
+sublayout: issue
+title: Could not login with Robot Account
+---
+Authentication that was attempted with a [robot account](/glossary/robot-accounts.html) failed
+
+### You do not have the correct password for the robot account
+
+The password for a robot account can be retrieved from the [user admin](/glossary/user-admin.html) or [organization admin](/glossary/org-admin.html) page under the tab **Robot Accounts** by clicking on the name of the robot account.
+
+### The robot account does not exist
+
+A robot account can be created in the [user admin](/glossary/user-admin.html) or [organization admin](/glossary/org-admin.html) page under the tab **Robot Accounts** by clicking the **Create Robot Account** button.

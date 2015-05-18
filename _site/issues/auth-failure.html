@@ -72,49 +72,40 @@
           <h1>I'm authorized but I'm still getting 403s</h1>
           <p>Attempting to push or pull to.from Quay.io results in a <code>403</code> even after a successful <code>docker login</code></p>
 
-<h3 class="reason">You are using CentOS 7</h3>
-<p>CentOS 7 introduced a custom build of Docker with a known issue that prevents logging
-into private registries (more information here: <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1209439">RedHat Bug</a>).</p>
+<h3 id="you-are-using-centos-7">You are using CentOS 7</h3>
 
-<h4 class="workaround">Workaround</h4>
-<p style="padding: 10px; background: #eee; border: 1px solid #ddd; margin: 10px;">
-Build Docker from source or downgrade to CentOS 6 until such time as CentOS 7's default
-distribution is fixed.
-</p>
+<p>CentOS 7 introduced a custom build of docker with a known issue that prevents logging into private registries (more information <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1209439">here</a>).</p>
 
-<h3 class="reason">You are using Docker version 0.8.1</h3>
-<p>Docker 0.8.1 introduced <a href="https://github.com/dotcloud/docker/issues/4267">a bug</a> in its storage of auth credentials in the <code>.dockercfg</code> file that results in no credentials being sent to Quay.io, despite a successful login.</p>
+<h4 id="workaround">Workaround</h4>
 
-<h4 class="workaround">Workaround</h4>
-<p style="padding: 10px; background: #eee; border: 1px solid #ddd; margin: 10px;">
-Note: This workaround may not work 100% of time. If you are still encountering auth issues (especially on <code>push</code>), please downgrade to docker 0.8.0 until we've identified the problem in docker.
-</p>
+<p>Build docker from source or downgrade to CentOS 6 until such time as CentOS 7&#39;s default distribution is fixed.</p>
 
-<p>
+<h3 id="you-are-using-docker-version-0.8.1">You are using docker version 0.8.1</h3>
+
+<p>docker 0.8.1 introduced <a href="https://github.com/dotcloud/docker/issues/4267">a bug</a> in its storage of auth credentials in the <code>.dockercfg</code> file that results in no credentials being sent to Quay.io, despite a successful login.</p>
+
+<h4 id="workaround">Workaround</h4>
+
+<p>Note: This workaround may not work 100% of time.</p>
+
+<p>If you are still encountering auth issues (especially on <code>push</code>), please downgrade to docker 0.8.0 until we&#39;ve identified the problem in docker.</p>
+
 <ol>
-<li>Delete your <code>.dockercfg</code> file:
-<pre class="command-example">
-rm .dockercfg
-</pre>
-</li>
-<li>
-Login to Quay.io using the following command which <u>specifies the Quay.io registry path directly</u>:
-<pre class="command-example">
-docker login https://quay.io/v1/
-</pre>
-</li>
+<li>Delete your .dockercfg file: <code>$ rm .dockercfg</code></li>
+<li>Login to Quay.io using the following command which <em>specifies the Quay.io registry path directly</em>: <code>$ docker login https://quay.io/v1/</code></li>
 </ol>
-</p>
 
-<h3 class="reason">You are executing <code>docker</code> in a different environment</h3>
-<p>Docker stores the credentials it uses for push and pull in a file typically placed at <code>$HOME/.dockercfg</code>. </p>
+<h3 id="you-are-executing-docker-in-a-different-environment">You are executing docker in a different environment</h3>
 
-<p>If you are executing docker in another environment (scripted <code>docker build</code>, virtual machine, makefile, virtualenv, etc), Docker will not be able to find the <code>.dockercfg</code> file and will fail.</p>
+<p>docker stores the credentials it uses for push and pull in a file typically placed at <code>$HOME/.dockercfg</code>.</p>
 
-<p><u>Make sure that the <code>.dockercfg</code> is accessible to the environment which is performing the push or pull.</u></p>
+<p>If you are executing docker in another environment (scripted <code>docker build</code>, virtual machine, makefile, virtualenv, etc), docker will not be able to find the <code>.dockercfg</code> file and will fail.</p>
 
-<h3 class="reason">You do not have permission on the repository</h3>
-Make sure that your user/robot account/token has permission on the repository. Permissions on a repository can be edited from the <a href="/glossary/repo-admin.html">repository admin panel</a>. Note that if you are trying to push/pull an organization repository, your account must either have permissions OR be a member of a <a href="/glossary/teams.html">team</a>.
+<p><em>Make sure that the <code>.dockercfg</code> is accessible to the environment which is performing the push or pull</em>.</p>
+
+<h3 id="you-do-not-have-permission-on-the-repository">You do not have permission on the repository</h3>
+
+<p>Make sure that your user/robot account/token has permission on the repository. Permissions on a repository can be edited from the <a href="/glossary/repo-admin.html">repository admin panel</a>. Note that if you are trying to push/pull an organization repository, your account must either have permissions OR be a member of a <a href="/glossary/teams.html">team</a>.</p>
 
         </div>
       </div>

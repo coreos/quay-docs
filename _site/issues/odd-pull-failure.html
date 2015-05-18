@@ -72,34 +72,27 @@
           <h1>Pulls are failing with an odd error</h1>
           <p>Attempting to <code>docker pull</code> from Quay.io results in an odd error message</p>
 
-
-<h2>I get an error similar to this:</h2>
-<pre>
-Pulling repository quay.io/my/repository
-39cb5a2eab5d: Error pulling image (myimage) from quay.io/my/repository, <u>link /var/lib/docker/devicemapper/mnt/bd6de6dfce</u>
+<h3 id="i-get-an-error-similar-to-this:">I get an error similar to this:</h3>
+<div class="highlight"><pre><code class="language-text" data-lang="text">Pulling repository quay.io/my/repository
+39cb5a2eab5d: Error pulling image (myimage) from quay.io/my/repository, link /var/lib/docker/devicemapper/mnt/bd6de6dfce
 5377faae6d1b4234b8f3221087210332/rootfs/var/lib/dpkg/available-old:
 no such file or directory old: no such file or directory 0143e54a: Download complete
 bd6de6dfce2d: Error downloading dependent layers
 2014/01/01 01:01:01 Could not find repository on any of the indexed registries.
-</pre>
+</code></pre></div>
+<h4 id="linux-kernel-bug-on-ubuntu-precise-pangolin-(12.04-lts)-(64-bit)">Linux kernel bug on Ubuntu Precise Pangolin (12.04 LTS) (64-bit)</h4>
 
-<h3 class="reason">Linux kernel bug on Ubuntu Precise Pangolin (12.04 LTS) (64-bit)</h3>
-<p>Precise has a linux kernel bug that must be updated in order to use Docker. Follow these instructions (copied from <a href="http://docs.docker.io/en/latest/installation/ubuntulinux/#ubuntu-precise">here</a>) and <u>make sure to reboot</u> before trying again.
+<p>Precise has a linux kernel bug that must be updated in order to use docker. Follow these instructions (copied from <a href="http://docs.docker.io/en/latest/installation/ubuntulinux/#ubuntu-precise">here</a>) and <em>make sure to reboot</em> before trying again.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ sudo apt-get update
+$ sudo apt-get install linux-image-generic-lts-raring linux-headers-generic-lts-raring
+$ sudo reboot
+</code></pre></div>
+<h4 id="missing-aufs-on-raring-13.04-and-saucy-13.10-(64-bit)">Missing AUFS on Raring 13.04 and Saucy 13.10 (64-bit)</h4>
 
-<pre class="command-example">
-sudo apt-get update
-sudo apt-get install linux-image-generic-lts-raring linux-headers-generic-lts-raring
-sudo reboot
-</pre>
-
-<h3 class="reason">Missing AUFS on Raring 13.04 and Saucy 13.10 (64-bit)</h3>
-<p>Not all installations of Ubuntu 13.04/13.10 ship with AUFS enabled. Follow these instructions (copied from <a href="http://docs.docker.io/en/latest/installation/ubuntulinux/#ubuntu-raring-saucy">here</a>).
-
-<pre class="command-example">
-sudo apt-get update
-sudo apt-get install linux-image-extra-`uname -r`
-</pre>
-
+<p>Not all installations of Ubuntu 13.04/13.10 ship with AUFS enabled. Follow these instructions (copied from <a href="http://docs.docker.io/en/latest/installation/ubuntulinux/#ubuntu-raring-saucy">here</a>).</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ sudo apt-get update
+$ sudo apt-get install linux-image-extra-`uname -r`
+</code></pre></div>
         </div>
       </div>
       <div class="coreos-docs-sidebar col-lg-3 col-md-3 col-sm-12 hidden-xs">

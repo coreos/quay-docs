@@ -70,12 +70,19 @@
       <div class="col-lg-9 col-md-9 col-sm-12">
         <div class="coreos-docs">
           <h1>I just pushed but the timestamp is wrong</h1>
-          <p>A recently conducted <code>docker push</code> to Quay.io shows the wrong timestamp for one or more images
+          <p>A recently conducted <code>docker push</code> to Quay.io shows the wrong timestamp for one or more images</p>
 
+<h3 id="your-machine/vm&#39;s-time-has-desynchronized">Your machine/VM&#39;s time has desynchronized</h3>
 
-<h3 class="reason">Your machine/VM's time has desynced</h3>
-<p>The timestamp we show for the <u>Changed</u> field is generated <u>by Docker</u> when the image is created. If the time on the machine on which the image was created is out of sync, the timestamp shown will be different on Quay.io as well. Usually this means a machine needs to be synced with <a href="http://www.ntp.org/">NTP</a>.
+<p>The timestamp we show for the <em>Changed</em> field is generated <em>by docker</em> when the image is created. If the time on the machine on which the image was created is out of sync, the timestamp shown will be different on Quay.io as well. Usually this means a machine needs to be synced with <a href="http://www.ntp.org">NTP</a>.</p>
 
+<h4 id="boot2docker-and-suspend/hibernate">boot2docker and suspend/hibernate</h4>
+
+<p>boot2docker users are likely to have their clocks get desynchronized when their computer is put into sleep mode or hibernation.</p>
+
+<p>The following is command will force the boot2docker virtual machine to synchronze its clock:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ boot2docker ssh -C &#39;sudo ntpclient -s -h pool.ntp.org&#39;
+</code></pre></div>
         </div>
       </div>
       <div class="coreos-docs-sidebar col-lg-3 col-md-3 col-sm-12 hidden-xs">
