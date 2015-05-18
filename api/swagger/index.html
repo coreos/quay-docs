@@ -22,7 +22,7 @@ title: API Explorer
 <script type="text/javascript">
 $(function () {
   // TODO Detect site domain and fallback to that instead of Quay.io.
-  var host = '{{ site.quayhost }}' or 'https://quay.io';
+  var host = '{{ site.quayhost }}' || 'https://quay.io';
 
   window.swaggerUi = new SwaggerUi({
   url: host + "/api/v1/discovery",
