@@ -9,7 +9,6 @@ WORKDIR /docs
 ADD _config.yml _config.yml
 ADD _includes _includes/
 ADD _layouts _layouts/
-ADD _site _site/
 ADD api api/
 ADD glossary glossary/
 ADD guides guides/
