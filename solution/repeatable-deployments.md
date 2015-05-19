@@ -72,7 +72,7 @@ Once we’ve installed all the Ubuntu packages necessary to run our service, we 
 
 ```dockerfile
 # Clean up any files used by apt-get
-RUN apt-get clean &amp;&amp; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 ```
 
 Our next step is to have PyPI install all the required libraries and packages necessary for our Python application. To do so, we’ll use the `pip install -r requirements.txt` convention, which installs all packages specified in a `requirements.txt` file.
