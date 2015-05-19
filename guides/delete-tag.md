@@ -4,6 +4,4 @@ sublayout: guide
 title: Deleting a tag
 tag: <span class="label label-info">Requires Admin Access</span>
 ---
-<p>
 A specific tag and all its images can be deleted by right clicking on the tag in the repository history tree and choosing "Delete Tag". This will delete the tag and any images unique to it. Images will not be deleted until all tags sharing them are deleted.
-</p>
