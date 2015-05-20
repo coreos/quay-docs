@@ -58,4 +58,6 @@ In order to automatically trigger a build, one must POST a JSON payload to the w
 }
 ```
 
+**Note**: This request requires an `Content-Type` header containing `application/json` in order to be valid.
+
 Once again, this can be accomplished various ways depending on the server setup, but for most cases can be done via a [post-receive git hook](https://git-scm.herokuapp.com/book/en/v2/Customizing-Git-Git-Hooks#idp26374144).
