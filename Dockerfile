@@ -13,6 +13,7 @@ WORKDIR /docs
 ADD _config.yml _config.yml
 ADD _includes _includes/
 ADD _layouts _layouts/
+ADD _plugins _plugins/
 ADD api api/
 ADD glossary glossary/
 ADD guides guides/
