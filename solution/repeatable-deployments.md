@@ -77,14 +77,14 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 Our next step is to have PyPI install all the required libraries and packages necessary for our Python application. To do so, we’ll use the `pip install -r requirements.txt` convention, which installs all packages specified in a `requirements.txt` file.
 
-The problem is…how are we going to get our `requirements.txt` file into the proper directory? The answer: using the `ADD` command.
+The problem is…how are we going to get our `requirements.txt` file into the proper directory? The answer: using the `COPY` command.
 
-### ADDing dependencies
+### COPYing dependencies
 
-The `ADD` command specifies that a file, located at the input path, should be copied from the same directory as the Dockerfile to the output path inside the container. For example, an `ADD` command like:
+The `COPY` command specifies that a file, located at the input path, should be copied from the same directory as the Dockerfile to the output path inside the container. For example, an `COPY` command like:
 
 ```dockerfile
-ADD config/somefile.txt myapp/anotherfile.txt
+COPY config/somefile.txt myapp/anotherfile.txt
 ```
 
 will copy the file located at `config/somefile.txt` (relative to the Dockerfile’s directory) to `myapp/anotherfile.txt` relative to the working directory inside the container.
@@ -96,7 +96,7 @@ Therefore, for our purposes, it is simple to add our `requirements.txt` and inst
 WORKDIR /root
 
 # Copy over our requirements.txt
-ADD requirements.txt /root/requirements.txt
+COPY requirements.txt /root/requirements.txt
 
 # Install our Python dependencies.
 RUN pip install -r requirements.txt
@@ -104,15 +104,15 @@ RUN pip install -r requirements.txt
 
 ### Asset management
 
-As we’ve seen, the `ADD` command can be used to add external files into the Docker image. Once we’ve installed our Python dependencies, our next step is to `ADD` any assets (including the web service’s code), to the Dockerfile. This can be done in steps or by copying entire directories:
+As we’ve seen, the `COPY` command can be used to add external files into the Docker image. Once we’ve installed our Python dependencies, our next step is to `COPY` any assets (including the web service’s code), to the Dockerfile. This can be done in steps or by copying entire directories:
 
 ```dockerfile
 # Copy over code and static assets.
-ADD static /root/static
-ADD application.py /root/application.py
+COPY static /root/static
+COPY application.py /root/application.py
 ```
 
-A question might be raised at this point: Why not copy all the static assets along with `requirements.txt` in the earlier part of the Dockerfile? The answer, once again, has to do with _caching_. The Dockerfile caching system will invalidate _all_ steps after _any_ `ADD` command that has a file that has changed, since it has been called. In our Dockerfile example, if we placed `ADD static /root/static` _before_ the `pip install -r requirements.txt` call, then any time we changed a static asset file, the entire PyPI installation process would be called again. Since that is obviously not the behavior we’d like, you should try to _place dependencies as late as possible when ordering these commands_.
+A question might be raised at this point: Why not copy all the static assets along with `requirements.txt` in the earlier part of the Dockerfile? The answer, once again, has to do with _caching_. The Dockerfile caching system will invalidate _all_ steps after _any_ `COPY` command that has a file that has changed, since it has been called. In our Dockerfile example, if we placed `COPY static /root/static` _before_ the `pip install -r requirements.txt` call, then any time we changed a static asset file, the entire PyPI installation process would be called again. Since that is obviously not the behavior we’d like, you should try to _place dependencies as late as possible when ordering these commands_.
 
 ### Running your service
 
@@ -120,7 +120,7 @@ The final step in setting up a service via a Dockerfile is to have said Dockerfi
 
 ```dockerfile
 # Add my runservice.sh shell script as a service and make sure it has the proper flags
-ADD runservice.sh /etc/service/mywebserver/run
+COPY runservice.sh /etc/service/mywebserver/run
 RUN chmod +x /etc/service/mywebserver/run
 ```
 
@@ -174,10 +174,10 @@ Running tests as part of the build process is quite easy; we simply execute a `R
 RUN python -m unittest discover
 ```
 
-The above command will discover and run any unit tests found in our Python source code. To that end, we also need to make sure to `ADD` our unit tests to the assets inside our image:
+The above command will discover and run any unit tests found in our Python source code. To that end, we also need to make sure to `COPY` our unit tests to the assets inside our image:
 
 ```dockerfile
-ADD test /root/test
+COPY test /root/test
 ```
 
 Finally, we should delete any test files once our unit tests run. We do so to ensure that our production code cannot rely (accidentally or on purpose) on our test code:
@@ -190,11 +190,11 @@ Altogether, this results in the following being added to the Dockerfile:
 
 ```dockerfile
 # Add my runservice.sh shell script as a service and make sure it has the proper flags
-ADD runservice.sh /etc/service/mywebserver/run
+COPY runservice.sh /etc/service/mywebserver/run
 RUN chmod +x /etc/service/mywebserver/run
 
 # Test our production image.
-ADD test /root/test
+COPY test /root/test
 RUN python -m unittest discover
 RUN rm -rf test
 
