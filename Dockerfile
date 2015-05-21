@@ -10,20 +10,20 @@ RUN gem install pygments.rb --no-rdoc --no-ri
 # Setup jekyll app
 RUN mkdir -p /docs
 WORKDIR /docs
-ADD _config.yml _config.yml
-ADD _includes _includes/
-ADD _layouts _layouts/
-ADD _plugins _plugins/
-ADD api api/
-ADD glossary glossary/
-ADD guides guides/
-ADD images images/
-ADD index.html index.html
-ADD issues issues/
-ADD javascripts javascripts/
-ADD params.json params.json
-ADD solution solution
-ADD stylesheets stylesheets/
+COPY _config.yml _config.yml
+COPY _includes _includes/
+COPY _layouts _layouts/
+COPY _plugins _plugins/
+COPY api api/
+COPY glossary glossary/
+COPY guides guides/
+COPY images images/
+COPY index.html index.html
+COPY issues issues/
+COPY javascripts javascripts/
+COPY params.json params.json
+COPY solution solution
+COPY stylesheets stylesheets/
 
 # Set runtime options
 EXPOSE 4000
