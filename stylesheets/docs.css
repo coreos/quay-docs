@@ -141,3 +141,16 @@ i.slack-icon {
   padding: 10px;
   border: 1px solid #eee;
 }
+
+i.tab-icon {
+  margin-right: 6px;
+}
+
+.tab-reference {
+  white-space: nowrap;
+  padding: 2px;
+  border: 1px solid #DDE7ED;
+  background-color: #e8f1f6;
+  padding-left: 6px;
+  padding-right: 6px;
+}
