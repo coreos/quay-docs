@@ -7,7 +7,7 @@ title: Pushing and Pulling Repositories
 
 Note: pushing to a repository requires **Repository Write Access**.
 
-In order to push a repository to Quay, it must first be _tagged_ with the _quay.io_ domain and the namespace under which it will live:
+In order to push a repository to Quay.io, it must first be _tagged_ with the _quay.io_ domain and the namespace under which it will live:
 
 ```
 $ sudo docker tag 0u123imageid quay.io/namespace/repository

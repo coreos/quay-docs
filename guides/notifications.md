@@ -3,7 +3,7 @@ layout: doc
 sublayout: guide
 title: Repository Notifications
 ---
-Quay.io supports adding _notifications_ to a repository for various events that occur in the repository's lifecycle. To add notifications, click the "Notifications" tab in the [Repository Admin Panel](/glossary/repo-admin.html).
+Quay.io supports adding _notifications_ to a repository for various events that occur in the repository's lifecycle. To add notifications, click the <span class="tab-reference"><i class="tab-icon fa fa-gear"></i>Settings</span> tab in the [Repository View](/guides/repo-view.html).
 
 Note: adding notifications requires **repository admin permission**.
 

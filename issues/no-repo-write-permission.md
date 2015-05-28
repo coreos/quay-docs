@@ -7,7 +7,7 @@ The user, [robot account](/glossary/robot-accounts.html), or [access token](/glo
 
 ### An access token or user does not have at least _write_ permission on the repository
 
-Check the permissions for the user, robot account or token in the repository's [admin page](/glossary/repo-admin.html) and make sure it is listed with `write` or `admin`
+Check the permissions for the user, robot account or token in the repository permissions table](/guides/repo-permissions.html) and make sure it is listed with `write` or `admin`
 
 ### You are authenticated and have _write_/_admin_ permission but still see the error
 

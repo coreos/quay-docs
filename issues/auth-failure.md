@@ -38,4 +38,4 @@ _Make sure that the `.dockercfg` is accessible to the environment which is perfo
 
 ### You do not have permission on the repository
 
-Make sure that your user/robot account/token has permission on the repository. Permissions on a repository can be edited from the [repository admin panel](/glossary/repo-admin.html). Note that if you are trying to push/pull an organization repository, your account must either have permissions OR be a member of a [team](/glossary/teams.html).
+Make sure that your user/robot account/token has permission on the repository. Permissions on a repository can be edited from the [permissions view](/guides/repo-permissions.html). Note that if you are trying to push/pull an organization repository, your account must either have permissions OR be a member of a [team](/glossary/teams.html).

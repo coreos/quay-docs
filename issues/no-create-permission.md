@@ -17,7 +17,7 @@ A user can only create repositories in its **own** namespace. Robot accounts can
 
 [Robot accounts](/glossary/robot-accounts.html), despite living under your username or organization name, do not normally possess the ability to create repositories in that namespace for security reasons.
 
-For a user-owned robot account, a repository must be created by the user first, and then permissions granted to the robot account in the repository's [admin panel](/glossary/repo-admin.html) to pull and/or push to that repository.
+For a user-owned robot account, a repository must be created by the user first, and then permissions granted to the robot account in the [repository permissions table](/guides/repo-permissions.html) to pull and/or push to that repository.
 
 For an organization-owned robot account, a robot account can be granted permission to create repositories if placed under a [team](/glossary/team.html) with the `creator` permission. Otherwise, a robot account must be granted individual permissions.
 
