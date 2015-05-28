@@ -4,15 +4,13 @@ sublayout: glossary
 title: Access Tokens
 ---
 
+### NOTE: Access tokens are currently **deprecated** and should not be used. [Robot Accounts](/glossary/robot-accounts.html) are their replacement.
+
 For per-repository token authentication, Quay allows the use of _access tokens_ which can be created on a repository and have read and/or write permissions, without any passwords.
 
 ### Managing access tokens
 
-Access tokens can be managed in the [repo admin](/glossary/repo-admin) panel.
-
-### Adding an access token
-
-Enter a user-readable description in the _new token description_ field
+Access tokens can be managed in the [repository view](/guides/repo-view.html).
 
 ### Authenticating with an access token
 
