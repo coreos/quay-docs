@@ -1,7 +1,7 @@
 ---
 layout: doc
 sublayout: guide
-title: Working with repositories in the UI
+title: Working with repositories in the browser
 ---
 
 The repository view provides access to the full information for a given repository. It is divided
