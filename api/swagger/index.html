@@ -24,8 +24,18 @@ $(function () {
   // TODO Detect site domain and fallback to that instead of Quay.io.
   var host = '{{ site.quayhost }}' || 'https://quay.io';
 
+  var internalModifier = '';
+  var searches = (location.search || '?').substr(1).split('&');
+  $.grep(searches, function(value) {
+    var parts = value.split('=');
+    if (parts[0] == 'internal' && parts[1] == 'true') {
+      internalModifier = 'internal=true'
+      return;
+    }
+  });
+
   window.swaggerUi = new SwaggerUi({
-  url: host + "/api/v1/discovery",
+  url: host + "/api/v1/discovery?" + internalModifier,
   dom_id: "swagger-ui-container",
   supportedSubmitMethods: ['get', 'post', 'put', 'delete'],
   apisSorter : "alpha",
