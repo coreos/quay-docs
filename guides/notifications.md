@@ -53,7 +53,29 @@ A Dockerfile build has been queued into the build system
   "build_id": "build_uuid",
   "build_name": "some-fake-build",
   "docker_tags": ["latest", "foo", "bar"],
-  "trigger_kind": "github"
+
+  "trigger_kind": "github",                                       // Optional
+  "trigger_id": "some-id-here",                                   // Optional
+  "trigger_metadata": {                                           // Optional
+    "default_branch": "master",
+    "ref": "refs/heads/somebranch",
+    "commit": "42d4a62c53350993ea41069e9f2cfdefb0df097d",
+    "commit_info": {                                              // Optional
+      "url": "http://path/to/the/commit",
+      "message": "Some commit message",
+      "date": 2395748365,
+      "author": {                                                 // Optional
+        "username": "fakeauthor",
+        "url": "http://path/to/fake/author/in/scm",               // Optional
+        "avatar_url": "http://www.gravatar.com/avatar/fakehash"   // Optional
+      },
+      "committer": {                                              // Optional
+        "username": "fakecommitter",
+        "url": "http://path/to/fake/comitter/in/scm",             // Optional
+        "avatar_url": "http://www.gravatar.com/avatar/fakehash"   // Optional
+      }
+    }
+  }
 }
 ```
 
@@ -76,7 +98,29 @@ A Dockerfile build has been started by the build system
   "build_id": "build_uuid",
   "build_name": "some-fake-build",
   "docker_tags": ["latest", "foo", "bar"],
-  "trigger_kind": "github"
+
+  "trigger_kind": "github",                                       // Optional
+  "trigger_id": "some-id-here",                                   // Optional
+  "trigger_metadata": {                                           // Optional
+    "default_branch": "master",
+    "ref": "refs/heads/somebranch",
+    "commit": "42d4a62c53350993ea41069e9f2cfdefb0df097d",
+    "commit_info": {                                              // Optional
+      "url": "http://path/to/the/commit",
+      "message": "Some commit message",
+      "date": 2395748365,
+      "author": {                                                 // Optional
+        "username": "fakeauthor",
+        "url": "http://path/to/fake/author/in/scm",               // Optional
+        "avatar_url": "http://www.gravatar.com/avatar/fakehash"   // Optional
+      },
+      "committer": {                                              // Optional
+        "username": "fakecommitter",
+        "url": "http://path/to/fake/comitter/in/scm",             // Optional
+        "avatar_url": "http://www.gravatar.com/avatar/fakehash"   // Optional
+      }
+    }
+  }
 }
 ```
 
@@ -101,7 +145,29 @@ Note: This event will occur **simultaneously** with a <i class="fa fa-lg fa-uplo
   "build_id": "build_uuid",
   "build_name": "some-fake-build",
   "docker_tags": ["latest", "foo", "bar"],
-  "trigger_kind": "github"
+
+  "trigger_kind": "github",                                       // Optional
+  "trigger_id": "some-id-here",                                   // Optional
+  "trigger_metadata": {                                           // Optional
+    "default_branch": "master",
+    "ref": "refs/heads/somebranch",
+    "commit": "42d4a62c53350993ea41069e9f2cfdefb0df097d",
+    "commit_info": {                                              // Optional
+      "url": "http://path/to/the/commit",
+      "message": "Some commit message",
+      "date": 2395748365,
+      "author": {                                                 // Optional
+        "username": "fakeauthor",
+        "url": "http://path/to/fake/author/in/scm",               // Optional
+        "avatar_url": "http://www.gravatar.com/avatar/fakehash"   // Optional
+      },
+      "committer": {                                              // Optional
+        "username": "fakecommitter",
+        "url": "http://path/to/fake/comitter/in/scm",             // Optional
+        "avatar_url": "http://www.gravatar.com/avatar/fakehash"   // Optional
+      }
+    }
+  }
 }
 ```
 
@@ -124,9 +190,31 @@ A Dockerfile build has failed
   "build_id": "build_uuid",
   "build_name": "some-fake-build",
   "docker_tags": ["latest", "foo", "bar"],
-  "trigger_kind": "github",
 
-  "error_message": "This is the reason the build failed"
+  "error_message": "This is the reason the build failed",
+
+  "trigger_kind": "github",                                       // Optional
+  "trigger_id": "some-id-here",                                   // Optional
+  "trigger_metadata": {                                           // Optional
+    "default_branch": "master",
+    "ref": "refs/heads/somebranch",
+    "commit": "42d4a62c53350993ea41069e9f2cfdefb0df097d",
+    "commit_info": {                                              // Optional
+      "url": "http://path/to/the/commit",
+      "message": "Some commit message",
+      "date": 2395748365,
+      "author": {                                                 // Optional
+        "username": "fakeauthor",
+        "url": "http://path/to/fake/author/in/scm",               // Optional
+        "avatar_url": "http://www.gravatar.com/avatar/fakehash"   // Optional
+      },
+      "committer": {                                              // Optional
+        "username": "fakecommitter",
+        "url": "http://path/to/fake/comitter/in/scm",             // Optional
+        "avatar_url": "http://www.gravatar.com/avatar/fakehash"   // Optional
+      }
+    }
+  }
 }
 ```
 
