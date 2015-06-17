@@ -24,7 +24,7 @@ Load balancer requirements include:
 | -------- | :------------: | :------------: |
 | HAProxy  |        ✓       |       ✓        |
 | ELB      |        ✓       |       ✓        |
-| nginx    |        ✓       |       x        |
+| nginx    |        ✓       |       ✕        |
 
 Feel free to submit more entries to this table via a Pull Request on GitHub.
 
