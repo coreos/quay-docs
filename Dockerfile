@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 
 # Install dependencies
-RUN apt-get update # 14MAY2015
+RUN apt-get update # 20JULY2015
 RUN apt-get -y install ruby ruby-dev make nodejs python python-dev python-pip
 RUN pip install pygments
 RUN gem install jekyll --no-rdoc --no-ri
