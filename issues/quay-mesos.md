@@ -4,9 +4,6 @@ sublayout: issue
 title: Pulling Private Quay.io images with Marathon/Mesos fails
 frontpage: True
 ---
-
-#### Special thanks to [Ian Saunders](https://github.com/IanSaunders) who provided this solution.
-
 Attempting to pull from a private repository with Marathon/Mesos fails with:
 
 ```
@@ -15,12 +12,17 @@ msg="Error: Status 403 trying to pull repository repo/project: \"{\\\"error\\\":
 
 ### Workaround
 
-To get Marathon/Mesos to pull from a private repository, we need to copy the `.docker/config.json`
-credentials onto the worker machines.
+To get Marathon/Mesos to pull from a private repository, we need to copy the docker configuration file's credentials onto the worker machines.
 
-#### Step 1: Create or Download Credentials
+When using mesos app definitions, credentials must be provided as a URI that must be accessible by all nodes that may start your application.
+Approaches may include distributing the file to the local filesystem of all nodes, for example via RSYNC/SCP, or storing it on a shared network drive, for example Amazon S3.
+It is worth considering the security implications of each approach.
 
-Login to the private repository manually or download a `config.json` from a Quay.io credentials dialog
+Special thanks to [Ian Saunders](https://github.com/IanSaunders) who provided this solution.
+
+#### Pre-Docker 1.6
+
+Download a configuration from a Quay.io credentials dialog or login to the private repository manually:
 
 ```
 $ docker login quay.io
@@ -29,41 +31,11 @@ Password:
 Email: my@email.com
 ```
 
-This creates a `.docker` folder and a `.docker/config.json` in your home directory.
+This process creates a configuration file in `$HOME/.dockercfg`.
 
-
-#### Step 2: tar+gzip the credentials
-
-Tar and GZip the `.docker` folder and its credentials:
-
-```
-$ cd ~
-$ tar czf docker.tar.gz .docker
-```
-
-Check you have both files in the tar:
-
-```
-$ tar -tvf /etc/docker.tar.gz
-```
-
-Put the gziped file in location which won't get reset:
-
-```
-$ cp docker.tar.gz  /etc/
-```
-
-#### Step 3: Mesos/Marathon config
-
-Add the path to the gziped login credentials to your marathon app definition:
-
-```
-"uris": [
-  "file:///etc/docker.tar.gz"
-]
-```
-
-For example:
+Add the `.dockercfg` to the `uris` field of your mesos app definition.
+The $HOME environment variable will then be set to the same value as $MESOS_SANDBOX so Docker can automatically pick up the config file.
+The following is an example app defintion:
 
 ```json
 {
@@ -74,12 +46,67 @@ For example:
   "container": {
     "type": "DOCKER",
     "docker": {
-      "image": "quay.io/namespace/repo",
+      "image": "some.docker.host.com/namespace/repo",
       "network": "HOST"
     }
   },
-  "uris": [
-    "file:///etc/docker.tar.gz"
+  "uris":  [
+      "file:///etc/.dockercfg"
+  ]
+}
+```
+
+#### Docker 1.6+
+
+Download a configuration from a Quay.io credentials dialog or login to the private repository manually:
+
+```
+$ docker login quay.io
+Username: myusername
+Password:
+Email: my@email.com
+```
+
+This process creates a configuration file in `$HOME/.docker/config.json`.
+
+Tar and gzip the `$HOME/.docker` directory and its contents:
+
+```
+$ cd $HOME
+$ tar czf docker.tar.gz .docker
+```
+
+Check that both the directory and the configuration are inside the tar:
+
+```
+$ tar -tvf $HOME/docker.tar.gz
+drwx------ root/root         0 2015-07-28 02:54 .docker/
+-rw------- root/root       114 2015-07-28 01:31 .docker/config.json
+```
+
+_Optionally_ put the tarball into a directory readable by mesos:
+
+```
+$ cp docker.tar.gz /etc/
+```
+
+Add the file to the `uris` field of your mesos app definition:
+
+```json
+{
+  "id": "/some/name/or/id",
+  "cpus": 1,
+  "mem": 1024,
+  "instances": 1,
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "image": "some.docker.host.com/namespace/repo",
+      "network": "HOST"
+    }
+  },
+  "uris":  [
+      "file:///etc/docker.tar.gz"
   ]
 }
 ```
