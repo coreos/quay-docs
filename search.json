@@ -1,0 +1,15 @@
+---
+---
+[
+  {% for page in site.pages %}
+    {% if page.sublayout == "issue" or page.sublayout == "guide" %}
+    {
+      "title"    : "{{ page.title | escape }}",
+      "sublayout" : "{{ page.sublayout }}",
+      "content"  : "{{ page.content | strip_html | strip_newlines | replace: '\', '' | replace: '"', '' | replace: '&', '' | replace: ';', '' }}",
+      "url"      : "{{ site.baseurl }}{{ page.url }}"
+    },
+    {% endif %}
+  {% endfor %}
+  {}
+]
