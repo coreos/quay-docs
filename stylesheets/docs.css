@@ -1,9 +1,39 @@
+#search-container {
+  padding-top: 8px;
+  padding-bottom: 6px;
+  margin-left: 10px;
+  position: relative;
+}
+
+#search-container input {
+  width: 350px;
+}
+
+
+#search-container #results-container {
+  position: absolute;
+  width: 350px;
+  background-color: white;
+  border: 1px solid #eee;
+  padding: 10px;
+  list-style: none;
+}
+
+#search-container #results-container:empty {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+#search-container #results-container li {
+  padding: 4px;
+}
+
 #quay-logo {
   width: 100px;
   -webkit-filter: none;
   background-image: url(https://quay.io/static/img/quay-logo.png);
   background-size: cover;
-  margin-top: 5px;
+  margin-top: 8px;
 }
 
 h3 {
