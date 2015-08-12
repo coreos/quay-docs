@@ -63,7 +63,7 @@ the permissions granted to the token to perform some work.
 
 All calls to the Quay.io REST API must occur via a token created for a defined _Application_.
 
-A new application can be created under the [Organization Admin Panel](/glossary/org-admin.html) in the _Applications_ section.
+A new application can be created under an [Organization](/glossary/organizations.html) in the _Applications_ tab.
 
 <img class="screenshot" src="newapp.png">
 
