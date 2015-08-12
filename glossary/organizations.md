@@ -11,7 +11,7 @@ To create an organization in the Quay.io UI, click the `+` icon in the top right
 
 ### Teams
 
-Organizations are organized into a set of [Teams](glossary/teams.html) which provide access to a subset of the repositories under that namespace
+Organizations are organized into a set of [Teams](/glossary/teams.html) which provide access to a subset of the repositories under that namespace
 
 ### Managing an organization
 
