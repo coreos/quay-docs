@@ -239,6 +239,8 @@ Note: All e-mail addresses will have to be verified on a **per-repository** basi
 
 An HTTP POST call will be made to the specified URL with the event's data (see above for each event's data format).
 
+When the URL is HTTPS, the call will have an SSL client certificate set from Quay.io. Verification of this certificate will prove the call originated from Quay.io.
+
 #### <i class="fa fa-lg method-icon hipchat-icon"></i>Hipchat Notification
 <a name="hipchat"></a>
 
