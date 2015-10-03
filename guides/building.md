@@ -48,3 +48,5 @@ Imagine the example above is the directory structure for a GitHub repository cal
 If no subdirectory is specified in the build trigger setup, the build will operate in the example directory.
 If `subdir` is specified to be the subdirectory in the build trigger setup, only the Dockerfile within it is visible to the build.
 This means that you cannot use the `ADD` command in the Dockerfile to add `file`, because it is outside of the build context.
+
+Unlike the Docker Hub, the Dockerfile is part of the build context on Quay. Thus, it must not appear in .dockerignore file.
