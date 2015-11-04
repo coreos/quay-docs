@@ -1,7 +1,7 @@
 ---
 layout: doc
 sublayout: issue
-title: 'Could not reach any registry endpoint' while pulling
+title: Could not reach any registry endpoint
 frontpage: True
 ---
 
