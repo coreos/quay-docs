@@ -12,7 +12,14 @@ In order for ECS to pull down docker images, the following needs to be in the EC
 
 ```
 ECS_ENGINE_AUTH_TYPE=dockercfg
-ECS_ENGINE_AUTH_DATA={"quay.io": {"auth": "YOURAUTHTOKENFROMDOCKERCFG", "email": "user@example.com"}}
+ECS_ENGINE_AUTH_DATA={"https://quay.io": {"auth": "YOURAUTHTOKENFROMDOCKERCFG", "email": "user@example.com"}}
+```
+
+If you are using a robot account, include the `username` as well:
+
+```
+ECS_ENGINE_AUTH_TYPE=dockercfg
+ECS_ENGINE_AUTH_DATA={"https://quay.io": {"auth": "YOURAUTHTOKENFROMDOCKERCFG", "email": ".", "username": "username"}}
 ```
 
 `ECS_ENGINE_AUTH_DATA` is the contents of the `auths` atttribute in `.docker/config.json` starting at Docker version `1.7.0` or the contents of `.dockercfg` before that.
