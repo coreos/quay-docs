@@ -1,30 +1,15 @@
-FROM ubuntu:latest
+FROM jekyll/jekyll:builder
 
-# Install dependencies
-RUN apt-get update # 20JULY2015
-RUN apt-get -y install ruby ruby-dev make nodejs python python-dev python-pip
-RUN pip install pygments
-RUN gem install jekyll --no-rdoc --no-ri
-RUN gem install pygments.rb --no-rdoc --no-ri
+RUN curl https://s3.amazonaws.com/aws-cli/awscli-bundle.zip -o awscli-bundle.zip && \
+	unzip awscli-bundle.zip && \
+	./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws && \
+	rm -rf awscli-bundle.zip awscli-bundle
 
-# Setup jekyll app
-RUN mkdir -p /docs
-WORKDIR /docs
-COPY _config.yml _config.yml
-COPY _includes _includes/
-COPY _layouts _layouts/
-COPY _plugins _plugins/
-COPY api api/
-COPY glossary glossary/
-COPY guides guides/
-COPY images images/
-COPY index.html index.html
-COPY issues issues/
-COPY javascripts javascripts/
-COPY params.json params.json
-COPY solution solution
-COPY stylesheets stylesheets/
+WORKDIR /srv/jekyll
 
-# Set runtime options
-EXPOSE 4000
-CMD ["jekyll", "serve", "--host", "0.0.0.0"]
+COPY run.sh /
+COPY build.sh /
+
+ADD . /srv/jekyll
+
+CMD ["jekyll", "serve"]
