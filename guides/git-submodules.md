@@ -28,6 +28,6 @@ The public key must be set as a deploy key for **each of the private submodules'
 
 Normally, one would add the public key as a deploy key for each of the private submodule's repositories through the git provider's website.
 However, GitHub does not allow duplicate deploy keys to exist, even across repositories.
-The only workaround requires that **the key must be added to a user and not repositories**.
+The only workaround requires that **the key must be removed from repositories and added to a user**.
 This may be a security concern, so it is recommended to create a brand new GitHub user and only giving them read access to those specific repositories.
 For GitHub, this is generally safer than using repository deploy keys, as they provide both read and write access.
