@@ -31,7 +31,7 @@ If you are using docker on OSX via [boot2docker](https://github.com/boot2docker/
 $ boot2docker restart
 ```
 
-[Docker-machine](https://docs.docker.com/machine/) superseds boot2docker on OSX. To fix weird state of docker, restart docker-machine:
+[Docker-machine](https://docs.docker.com/machine/) supersedes boot2docker on OSX. To fix weird state of docker, restart docker-machine:
 
 ```
 $ docker-machine restart default
