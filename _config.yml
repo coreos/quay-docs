@@ -1,6 +1,6 @@
 markdown: kramdown
 redcarpet:
   extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "tables", "superscript"]
-highlighter: pygments
+highlighter: rouge
 
 exclude: ["README.md", "Dockerfile", "CNAME", "build.sh", "run.sh"]
