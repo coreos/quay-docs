@@ -19,11 +19,11 @@ If you are using a robot account, include the `username` as well:
 
 ```
 ECS_ENGINE_AUTH_TYPE=dockercfg
-ECS_ENGINE_AUTH_DATA={"https://quay.io": {"auth": "YOURAUTHTOKENFROMDOCKERCFG", "email": ".", "username": "username"}}
+ECS_ENGINE_AUTH_DATA={"https://quay.io": {"auth": "YOURAUTHTOKENFROMDOCKERCFG", "email": ".", "username": "USERNAME"}}
 ```
 
 `ECS_ENGINE_AUTH_DATA` is the contents of the `auths` atttribute in `.docker/config.json` starting at Docker version `1.7.0` or the contents of `.dockercfg` before that.
 
-After updating this file, the ECS service must be restarted for the change to propagate.
+**Restart the ECS service to make the changes active.**
 
 See [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/private-auth.html) for more information.
