@@ -225,7 +225,7 @@ Clair has discovered a new vulnerability
 
 <a name="#webhook_vulnerability_found"></a>
 
-Note: Clair webhook notifications report the UUID of the affected build. Use the <a href=docs.quay.io/api/swagger>API</a> to analyze notifications for the build.
+Note: Clair webhook notifications report the UUID of the affected build. Use the <a href=http://docs.quay.io/api/swagger>API</a> to analyze notifications for the build.
 
 ```json
 {
