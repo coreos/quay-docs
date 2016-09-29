@@ -12,7 +12,7 @@ Note: adding notifications requires **repository admin permission**.
 #### <i class="fa fa-lg fa-upload event-icon"></i>Repository Push
 <a name="#repo_push"></a>
 
-A successful push of one or more images was made to the repository
+A successful push of one or more images was made to the repository.
 
 <a name="#webhook_repo_push"></a>
 
@@ -36,7 +36,7 @@ A successful push of one or more images was made to the repository
 #### <i class="fa fa-lg fa-tasks event-icon"></i>Dockerfile Build Queued
 <a name="#build_queued"></a>
 
-A Dockerfile build has been queued into the build system
+A Dockerfile build has been queued into the build system.
 
 <a name="#webhook_build_queued"></a>
 
@@ -82,7 +82,7 @@ A Dockerfile build has been queued into the build system
 #### <i class="fa fa-lg fa-circle-o-notch event-icon"></i>Dockerfile Build Started
 <a name="#build_started"></a>
 
-A Dockerfile build has been started by the build system
+A Dockerfile build has been started by the build system.
 
 <a name="#webhook_build_started"></a>
 
@@ -127,9 +127,9 @@ A Dockerfile build has been started by the build system
 #### <i class="fa fa-lg fa-check-circle-o event-icon"></i>Dockerfile Build Successfully Completed
 <a name="#build_success"></a>
 
-A Dockerfile build has been successfully completed by the build system
+A Dockerfile build has been successfully completed by the build system.
 
-Note: This event will occur **simultaneously** with a <i class="fa fa-lg fa-upload"></i> _Repository Push_ event for the built image(s)
+Note: This event will occur **simultaneously** with a <i class="fa fa-lg fa-upload"></i> _Repository Push_ event for the built image(s).
 
 <a name="#webhook_build_success"></a>
 
@@ -174,7 +174,7 @@ Note: This event will occur **simultaneously** with a <i class="fa fa-lg fa-uplo
 #### <i class="fa fa-lg fa-times-circle-o event-icon"></i>Dockerfile Build Failed
 <a name="#build_failure"></a>
 
-A Dockerfile build has failed
+A Dockerfile build has failed.
 
 <a name="#webhook_build_failure"></a>
 
@@ -221,7 +221,7 @@ A Dockerfile build has failed
 #### <i class="fa fa-lg fa-times-circle-o event-icon"></i>Vulnerability Found
 <a name="#vulnerability_found"></a>
 
-Quay Security Scanner has discovered a new vulnerability or an existing vulnerability was updated to a higher severity
+Quay Security Scanner has discovered a new vulnerability or an existing vulnerability was updated to a higher severity.
 
 <a name="#webhook_vulnerability_found"></a>
 
@@ -255,7 +255,7 @@ Quay.io Notifications can be setup to be sent to a <i class="fa fa-user entity-i
 
 An e-mail will be sent to the specified address describing the event that occurred.
 
-Note: All e-mail addresses will have to be verified on a **per-repository** basis
+Note: All e-mail addresses will have to be verified on a **per-repository** basis.
 
 #### <i class="fa fa-lg method-icon fa-link"></i>Webhook POST
 <a name="webhook"></a>
