@@ -221,16 +221,20 @@ A Dockerfile build has failed
 #### <i class="fa fa-lg fa-times-circle-o event-icon"></i>Vulnerability Found
 <a name="#vulnerability_found"></a>
 
-Clair has discovered a new vulnerability
+Quay Security Scanner has discovered a new vulnerability or an existing vulnerability was updated to a higher severity
 
 <a name="#webhook_vulnerability_found"></a>
 
-Note: Clair webhook notifications report the UUID of the affected build. Use the <a href=http://docs.quay.io/api/swagger>API</a> to analyze notifications for the build.
-
 ```json
 {
-  "Notification": {
-    "Name": "6e4ad270-4957-4242-b5ad-dad851379573"
+  "tags": ["latest", "prod"],
+  "image": "the-image-id",
+  "vulnerability": {
+    "id": "CVE-1234-ID", 
+    "description": "Heartbleed 2: Coronary Boogaloo",
+    "link": "http://link/to/vuln/info",
+    "priority": "Critical",
+    "has_fix": true
   }
 }
 ```
