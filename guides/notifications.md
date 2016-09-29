@@ -218,6 +218,25 @@ A Dockerfile build has failed
 }
 ```
 
+#### <i class="fa fa-lg fa-times-circle-o event-icon"></i>Vulnerability Found
+<a name="#vulnerability_found"></a>
+
+Clair has discovered a new vulnerability
+
+<a name="#webhook_vulnerability_found"></a>
+
+Note: Clair webhook notifications report the UUID of the affected build. Use the <a href=docs.quay.io/api/swagger>API</a> to analyze notifications for the build.
+
+```json
+{
+  "Notification": {
+    "Name": "6e4ad270-4957-4242-b5ad-dad851379573"
+  }
+}
+```
+
+
+
 ### Notification Actions
 
 #### <img class="method-icon" src="https://quay.io/static/img/favicon.ico" style="width: 22px; height: 22px;">Quay.io Notification
