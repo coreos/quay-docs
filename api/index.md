@@ -52,7 +52,7 @@ the permissions granted to the token to perform some work.
     <tr>
         <td>repo:read</td>
         <td>
-            The application will be able to view and pull all repositories visible to the granting user or robot account
+            The application will be able to view and pull all repositories visible to the granting user
         </td>
     </tr>
 </table>
