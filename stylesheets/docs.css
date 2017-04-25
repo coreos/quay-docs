@@ -33,7 +33,8 @@
   -webkit-filter: none;
   background-image: url(https://quay.io/static/img/quay-logo.png);
   background-size: cover;
-  margin-top: 8px;
+  margin-top: 12px; 
+  margin-right: 10px;   
 }
 
 h3 {

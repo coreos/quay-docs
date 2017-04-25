@@ -9,7 +9,6 @@
   <link href="https://coreos.com/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
-  <link href="https://coreos.com/assets/css/docs.css" rel="stylesheet">
   <link href="https://coreos.com/assets/css/pygments-manni.css" rel="stylesheet">
 
   <link href="https://coreos.com/assets/css/coreos.css" rel="stylesheet">
@@ -25,11 +24,6 @@
 
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,400italic,600,700,900" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600,700" rel="stylesheet" type="text/css">
-
-  <link href="https://coreos.com/assets/css/gh-fork-ribbon.css" rel="stylesheet">
-<!--[if IE]>
-      <link rel="stylesheet" href="https://coreos.com/assets/css/gh-fork-ribbon.ie.css" />
-<![endif]-->
 
   <script src="https://coreos.com/assets/js/jquery.js"></script>
 
@@ -77,9 +71,11 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12">
-        <div class="coreos-docs">
-          <h1>{{ page.title }}</h1>
-          {{ content }}
+        <div class="coreos-docs-list">
+          <div class="co-m-docs-product-list">
+            <h1>{{ page.title }}</h1>
+            {{ content }}
+          </div>
         </div>
       </div>
     </div>
@@ -88,17 +84,12 @@
   <script src="https://coreos.com/dist/js/bootstrap.min.js"></script>
   <script src="https://coreos.com/assets/js/holder.js"></script>
   <script src="https://coreos.com/assets/js/application.js"></script>
-  <script src="https://coreos.com/assets/js/masonry.pkgd.min.js"></script>
-
-  <script src="https://coreos.com/assets/js/jquery-ui-1.9.1.custom.min.js"></script>
-  <script src="https://coreos.com/assets/js/jquery.tocify.js"></script>
 
   <script type="text/javascript">
   $(document).ready(function() {
     $('[data-toggle=tooltip]').tooltip();
   });
   </script>
-  <script src="https://coreos.com/assets/js/docs.js"></script>
   <script type="text/javascript" src="https://coreos.com/assets/js/events.js"></script>
 </body>
 </html>
