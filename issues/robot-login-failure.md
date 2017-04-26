@@ -2,7 +2,7 @@
 layout: doc
 sublayout: issue
 title: Could not login with Robot Account
-reviewed: 2015-05-28T16:29:15-04:00
+reviewed: 2017-04-26T17:43:00-04:00
 ---
 Authentication that was attempted with a [robot account](/glossary/robot-accounts.html) failed
 
