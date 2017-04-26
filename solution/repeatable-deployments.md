@@ -2,6 +2,7 @@
 layout: doc
 title: Repeatable and Testable Deployments
 sublayout: solution
+reviewed: 2015-05-21T15:58:30-04:00
 ---
 
 ### The perils of deployment
