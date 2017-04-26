@@ -240,7 +240,7 @@ A vulnerability was detected in the repository
 
 ### Notification Actions
 
-#### <img class="method-icon" src="https://quay.io/static/img/favicon.ico" style="width: 22px; height: 22px;">Quay.io Notification
+#### <img class="method-icon" src="https://quay.io/static/img/quay_favicon.png" style="width: 22px; height: 22px;">Quay Notification
 <a name="quay_notification"></a>
 
 A notification will be added to the Quay.io notification area. The notification area can be found by clicking on the bell icon in the top right of any Quay.io page.
