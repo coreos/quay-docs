@@ -2,6 +2,7 @@
 layout: doc
 sublayout: issue
 title: Invalid OAuth Token
+reviewed: 2015-05-18T12:10:58-04:00
 ---
 Authentication that was attempted with an OAuth access token failed
 

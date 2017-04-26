@@ -2,6 +2,7 @@
 layout: doc
 sublayout: issue
 title: docker login is failing with an odd error
+reviewed: 2016-01-07T14:52:01-04:00
 frontpage: True
 ---
 Attempting to `docker login` from Quay.io results in an odd error message

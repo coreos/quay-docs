@@ -2,6 +2,7 @@
 layout: doc
 sublayout: issue
 title: Build logs are not loading
+reviewed: 2015-06-11T12:28:49-04:00
 frontpage: True
 ---
 

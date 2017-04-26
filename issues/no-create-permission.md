@@ -2,6 +2,7 @@
 layout: doc
 sublayout: issue
 title: Cannot create new repository
+reviewed: 2015-05-28T16:29:15-04:00
 ---
 The user or [robot account](/glossary/robot-accounts.html) does not have permission to create new repositories in this namespace.
 

@@ -2,6 +2,7 @@
 layout: doc
 sublayout: issue
 title: Pulls are failing with an odd error
+reviewed: 2015-05-18T12:10:58-04:00
 frontpage: True
 ---
 Attempting to `docker pull` from Quay.io results in an odd error message

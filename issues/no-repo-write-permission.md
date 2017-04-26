@@ -2,6 +2,7 @@
 layout: doc
 sublayout: issue
 title: Cannot modify repository
+reviewed: 2015-05-28T16:29:15-04:00
 ---
 The user, [robot account](/glossary/robot-accounts.html), or [access token](/glossary/access-token.html) does not have permission to modify the repository.
 

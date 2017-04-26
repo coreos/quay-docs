@@ -2,6 +2,7 @@
 layout: doc
 sublayout: issue
 title: Pulling Private Quay.io images with Marathon/Mesos fails
+reviewed: 2015-07-30T17:10:43-04:00
 frontpage: True
 ---
 Attempting to pull from a private repository with Marathon/Mesos fails with:

@@ -2,6 +2,7 @@
 layout: doc
 sublayout: issue
 title: Enterprise Registry fails to install or update on MySQL 5.7
+reviewed: 2015-09-14T15:52:41-04:00
 ---
 Attempting to install or update the Enterprise Registry on MySQL version 5.7 fails with the following
 error:
