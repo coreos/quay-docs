@@ -2,9 +2,9 @@
 layout: doc
 sublayout: guide
 title: Repository Notifications
-reviewed: 2016-01-05T16:29:43-04:00
+reviewed: 2017-04-26T17:30:00-04:00
 ---
-Quay.io supports adding _notifications_ to a repository for various events that occur in the repository's lifecycle. To add notifications, click the <span class="tab-reference"><i class="tab-icon fa fa-gear"></i>Settings</span> tab in the [Repository View](/guides/repo-view.html).
+Quay supports adding _notifications_ to a repository for various events that occur in the repository's lifecycle. To add notifications, click the <span class="tab-reference"><i class="tab-icon fa fa-gear"></i>Settings</span> tab in the [Repository View](/guides/repo-view.html).
 
 Note: adding notifications requires **repository admin permission**.
 
@@ -24,13 +24,10 @@ A successful push of one or more images was made to the repository
   "name": "repository",
   "docker_url": "quay.io/mynamespace/repository",
   "homepage": "https://quay.io/repository/mynamespace/repository",
-  "visibility": "public",
 
   "updated_tags": {
     "latest": "b750fe79269d2ec9a3c593ef05b4332b1d1a02a62b4accb2c21d589ff2f5f2dc"
-  },
-  "pushed_image_count": 10,
-  "pruned_image_count": 3
+  }
 }
 ```
 
@@ -48,11 +45,9 @@ A Dockerfile build has been queued into the build system
   "name": "repository",
   "docker_url": "quay.io/mynamespace/repository",
   "homepage": "https://quay.io/repository/mynamespace/repository/build?current=some-fake-build",
-  "visibility": "public",
 
   "is_manual": false,
   "build_id": "build_uuid",
-  "build_name": "some-fake-build",
   "docker_tags": ["latest", "foo", "bar"],
 
   "trigger_kind": "github",                                       // Optional
@@ -94,10 +89,8 @@ A Dockerfile build has been started by the build system
   "name": "repository",
   "docker_url": "quay.io/mynamespace/repository",
   "homepage": "https://quay.io/repository/mynamespace/repository/build?current=some-fake-build",
-  "visibility": "public",
 
   "build_id": "build_uuid",
-  "build_name": "some-fake-build",
   "docker_tags": ["latest", "foo", "bar"],
 
   "trigger_kind": "github",                                       // Optional
@@ -144,7 +137,6 @@ Note: This event will occur **simultaneously** with a <i class="fa fa-lg fa-uplo
   "visibility": "public",
 
   "build_id": "build_uuid",
-  "build_name": "some-fake-build",
   "docker_tags": ["latest", "foo", "bar"],
 
   "trigger_kind": "github",                                       // Optional
@@ -186,10 +178,8 @@ A Dockerfile build has failed
   "name": "repository",
   "docker_url": "quay.io/mynamespace/repository",
   "homepage": "https://quay.io/repository/mynamespace/repository/build?current=some-fake-build",
-  "visibility": "public",
 
   "build_id": "build_uuid",
-  "build_name": "some-fake-build",
   "docker_tags": ["latest", "foo", "bar"],
 
   "error_message": "This is the reason the build failed",
@@ -218,6 +208,35 @@ A Dockerfile build has failed
   }
 }
 ```
+
+
+#### <i class="fa fa-lg fa-bug event-icon"></i>Vulnerability Detected
+<a name="#build_failure"></a>
+
+A vulnerability was detected in the repository
+
+<a name="#webhook_build_failure"></a>
+
+```json
+{
+  "repository": "mynamespace/repository",
+  "namespace": "mynamespace",
+  "name": "repository",
+  "docker_url": "quay.io/mynamespace/repository",
+  "homepage": "https://quay.io/repository/mynamespace/repository",
+
+  "tags": ["latest", "othertag"],
+
+  "vulnerability": {
+    "id": "CVE-1234-5678",
+    "description": "This is a bad vulnerability",
+    "link": "http://url/to/vuln/info",
+    "priority": "Critical",
+    "has_fix": true
+  }
+}
+```
+
 
 ### Notification Actions
 

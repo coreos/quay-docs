@@ -2,10 +2,6 @@
 layout: doc
 sublayout: issue
 title: Missing checksum cookie
-reviewed: 2015-05-18T12:10:58-04:00
+reviewed: 2017-04-26T17:30:00-04:00
 ---
-The checksum cookie for the current image is missing
-
-### The checksum cookie was not found
-
-Please upgrade your version of docker. If the problem persists, please [contact support](https://quay.io/contact).
+When using Docker V1 protocol, the checksum cookie for the current image is missing. Please upgrade your version of docker.
