@@ -6,7 +6,9 @@ index: true
 ---
 The Quay.io API is a full [OAuth 2](http://oauth.net/2/), RESTful API.
 
-**The API is currently in prerelease**
+**Note:** The Quay API is currently marked as version 1 and considered stable within minor versions
+of Quay Enterprise. The API may (but, in practice, never has) experience breaking changes across
+**major** versions of Quay Enterprise or at any time on Quay.io.
 
 ### Overview
 
