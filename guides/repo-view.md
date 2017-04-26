@@ -2,6 +2,7 @@
 layout: doc
 sublayout: guide
 title: Working with repositories in the browser
+reviewed: 2015-05-29T15:19:05-04:00
 ---
 
 The repository view provides access to the full information for a given repository. It is divided
