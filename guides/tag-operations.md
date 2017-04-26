@@ -2,6 +2,7 @@
 layout: doc
 sublayout: guide
 title: Working with tags
+reviewed: 2015-05-28T13:52:42-04:00
 ---
 
 ## Viewing and modifying tags

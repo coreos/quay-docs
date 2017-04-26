@@ -2,6 +2,7 @@
 layout: doc
 sublayout: issue
 title: Could not login with an access token
+reviewed: 2015-05-18T12:10:58-04:00
 ---
 Authentication that was attempted with an [access token](/glossary/access-token.html) failed.
 

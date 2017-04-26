@@ -2,6 +2,7 @@
 layout: doc
 sublayout: guide
 title: Running Quay.io behind a load balancer
+reviewed: 2015-06-17T17:11:09-04:00
 ---
 
 Running an enterprise instance of Quay.io behind a load balancer is often desired for large installations.

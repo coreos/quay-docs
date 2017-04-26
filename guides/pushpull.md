@@ -2,6 +2,7 @@
 layout: doc
 sublayout: guide
 title: Pushing and Pulling Repositories
+reviewed: 2015-05-28T16:29:15-04:00
 ---
 ### Pushing a repository to Quay.io
 

@@ -2,6 +2,7 @@
 layout: doc
 sublayout: guide
 title: Git Triggers & Submodules
+reviewed: 2015-12-16T13:00:06-04:00
 ---
 
 [Git submodules](https://git-scm.com/docs/git-submodule) are a popular way for one git repository to _vendor_ dependencies on other git repositories.

@@ -2,6 +2,7 @@
 layout: doc
 sublayout: guide
 title: Repository permissions
+reviewed: 2015-05-28T16:29:15-04:00
 ---
 
 Repository permissions define which users, [robot accounts](/glossary/robot-accounts.html) and [teams](/glossary/teams.html) have access to a repository for pulling, pushing and administrating. To view and modify permissions for a repository, click the <span class="tab-reference"><i class="tab-icon fa fa-gear"></i>Settings</span> tab in the [Repository View](/guides/repo-view.html).

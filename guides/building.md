@@ -2,6 +2,7 @@
 layout: doc
 sublayout: guide
 title: Building Dockerfiles
+reviewed: 2015-10-03T12:41:25-04:00
 ---
 
 Quay.io supports the ability to build [Dockerfiles](http://docs.docker.com/reference/builder/) on our build fleet, and push the resulting image to the repository.

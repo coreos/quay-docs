@@ -2,6 +2,7 @@
 layout: doc
 sublayout: guide
 title: Customizing Invoices
+reviewed: 2015-07-13T14:37:25-04:00
 ---
 
 Invoices provided by Quay.io try to provide as much information as possible.

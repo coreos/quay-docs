@@ -2,6 +2,7 @@
 layout: doc
 sublayout: issue
 title: I just pushed but the timestamp is wrong
+reviewed: 2015-05-18T12:10:58-04:00
 frontpage: True
 ---
 A recently conducted `docker push` to Quay.io shows the wrong timestamp for one or more images

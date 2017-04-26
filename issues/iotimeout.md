@@ -2,6 +2,7 @@
 layout: doc
 sublayout: issue
 title: Docker is returning an i/o timeout
+reviewed: 2015-06-01T13:47:44-04:00
 frontpage: True
 ---
 Attemping to interact with a remote repository yields an `i/o timeout`.

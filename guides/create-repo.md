@@ -2,6 +2,7 @@
 layout: doc
 sublayout: guide
 title: Creating a repository
+reviewed: 2015-05-19T12:25:48-04:00
 ---
 There are two ways to create a repository in Quay.io: via a `docker push` and via the Quay.io UI.
 

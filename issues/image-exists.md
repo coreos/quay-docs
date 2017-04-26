@@ -2,6 +2,7 @@
 layout: doc
 sublayout: issue
 title: Image already exists
+reviewed: 2015-05-18T12:10:58-04:00
 ---
 The specified image already exists in the repository
 

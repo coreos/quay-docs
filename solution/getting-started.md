@@ -2,6 +2,7 @@
 layout: doc
 title: Getting Started with Quay.io
 sublayout: solution
+reviewed: 2015-05-15T16:32:20-04:00
 ---
 
 <div class="alert alert-warning">Warning: Quay.io only supports docker version 1.0 or greater</div>

@@ -2,6 +2,7 @@
 layout: doc
 sublayout: issue
 title: Base image pull in Dockerfile fails with 403
+reviewed: 2015-06-28T13:45:07-04:00
 frontpage: True
 ---
 Attempting to use a private base image as the `FROM` line in a [Build Trigger](/glossary/build-trigger.html) results in a 403 error.

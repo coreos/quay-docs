@@ -2,6 +2,7 @@
 layout: doc
 sublayout: guide
 title: Setting up a Custom Git Trigger
+reviewed: 2015-05-20T17:32:20-04:00
 ---
 A Custom Git Trigger is a generic way for any git server to act as a build trigger.
 

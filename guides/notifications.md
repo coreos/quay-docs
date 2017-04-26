@@ -2,6 +2,7 @@
 layout: doc
 sublayout: guide
 title: Repository Notifications
+reviewed: 2016-01-05T16:29:43-04:00
 ---
 Quay.io supports adding _notifications_ to a repository for various events that occur in the repository's lifecycle. To add notifications, click the <span class="tab-reference"><i class="tab-icon fa fa-gear"></i>Settings</span> tab in the [Repository View](/guides/repo-view.html).
 
