@@ -2,7 +2,7 @@
 layout: doc
 sublayout: issue
 title: Pulling Private Quay.io images with Marathon/Mesos fails
-reviewed: 2015-07-30T17:10:43-04:00
+reviewed: 2017-04-27T17:50:30-04:00
 frontpage: True
 ---
 Attempting to pull from a private repository with Marathon/Mesos fails with:
@@ -15,7 +15,10 @@ msg="Error: Status 403 trying to pull repository repo/project: \"{\\\"error\\\":
 
 To get Marathon/Mesos to pull from a private repository, we need to copy the docker configuration file's credentials onto the worker machines.
 
+More information about configuring Mesos registry authentication can be found on the ['Using a Private Docker Registry'](https://mesosphere.github.io/marathon/docs/native-docker-private-registry.html) documentation.
+
 When using mesos app definitions, credentials must be provided as a URI that must be accessible by all nodes that may start your application.
+
 Approaches may include distributing the file to the local filesystem of all nodes, for example via RSYNC/SCP, or storing it on a shared network drive, for example Amazon S3.
 It is worth considering the security implications of each approach.
 
@@ -59,7 +62,7 @@ The following is an example app defintion:
 
 #### Docker 1.6+
 
-Download a configuration from a Quay.io credentials dialog or login to the private repository manually:
+Download a configuration from a Quay credentials dialog or login to the private repository manually:
 
 ```
 $ docker login quay.io
