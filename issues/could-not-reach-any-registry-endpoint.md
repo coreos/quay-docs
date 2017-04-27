@@ -2,7 +2,7 @@
 layout: doc
 sublayout: issue
 title: Could not reach any registry endpoint
-reviewed: 2015-11-04T11:44:29-04:00
+reviewed: 2017-04-27T00:00:00-04:00
 frontpage: True
 ---
 
