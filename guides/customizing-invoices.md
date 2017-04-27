@@ -2,7 +2,7 @@
 layout: doc
 sublayout: guide
 title: Customizing Invoices
-reviewed: 2015-07-13T14:37:25-04:00
+reviewed: 2017-04-26T17:30:00-04:00
 ---
 
 Invoices provided by Quay.io try to provide as much information as possible.
@@ -11,7 +11,7 @@ In order to solve this problem, Quay.io supports the ability to automatically cu
 
 ### Adding new data
 
-Navigate to the _Billing Invoices_ tab of an Organization View (`https://quay.io/organization/YOURORG?tab=invoices`).
+Navigate to the [_Billing Invoices_ page](https://quay.io/organization/YOURORGANIZATION/billing/invoices) which can be found in the [settings for your organization](https://quay.io/organization/YOURORGANIZATION?tab=settings).
 In the top-right corner of the page, click on the drop-down as pictured below.
 Select "Add Custom Invoice Field" and fill in the subsequent modal dialog with the name of the field and its value.
 Repeat this for as many values as required (addresses will likely need to be split into multiple fields).
@@ -24,7 +24,7 @@ Now clicking on the download button (<i class="fa fa-download"></i>) for an invo
 
 ### Removing data
 
-Navigate to the _Billing Invoices_ tab of an Organization View (`https://quay.io/organization/YOURORG?tab=invoices`).
+Navigate to the [_Billing Invoices_ page](https://quay.io/organization/YOURORGANIZATION/billing/invoices) which can be found in the [settings for your organization](https://quay.io/organization/YOURORGANIZATION?tab=settings).
 In the top-right corner of the page, click on the drop-down as pictured below.
 Click the trash can icon next to the custom field that should be removed.
 
