@@ -1,8 +1,8 @@
 ---
 layout: doc
 sublayout: issue
-title: docker login is failing with an odd error
-reviewed: 2016-01-07T14:52:01-04:00
+title: Docker login is failing with an odd error
+reviewed: 2017-04-27T14:52:01-04:00
 frontpage: True
 ---
 Attempting to `docker login` from Quay.io results in an odd error message
@@ -17,10 +17,13 @@ Username (username):
 
 #### I'm on a high-latency slow connection
 
-docker has defined as maximum timeout of <b>five seconds</b> before a timeout will occur. Currently, the only solution is to find a connection with a better latency. Quay.io is currently working to raise this limit to 30 seconds or so.
+Docker has defined as maximum timeout of <b>five seconds</b> before a timeout will occur.
+Currently, the only solution is to find a connection with a better latency. 
 
 
 #### I'm running docker under a Vagrant VM
+
+Note: This is probably fixed for Docker version 1.12.2 and greater.
 
 There is a known issue with Vagrant whereby networking connections can sometimes become extremely slow. A solution can be found [here](https://github.com/mitchellh/vagrant/issues/1807).
 
