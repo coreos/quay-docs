@@ -2,7 +2,7 @@
 layout: doc
 sublayout: issue
 title: Cannot create repository as a guest
-reviewed: 2015-05-18T12:10:58-04:00
+reviewed: 2017-04-27T16:50:12-04:00
 ---
 To create a repository on Quay.io, you must use an authenticated user or [robot account](/glossary/robot-accounts.html).
 
