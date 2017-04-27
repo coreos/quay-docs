@@ -5,7 +5,7 @@ title: GitHub Read-Only Build Triggers
 reviewed: 2017-04-27T13:38:39-04:00
 ---
 
-GitHub-based build triggers are by default set up with read and write access to a user's source repositories. At this time GitHub does not provide a way to create webhooks without granting these permissions.
+GitHub-based build triggers are by default set up with read and write access to a user's source repositories. At this time GitHub does not provide a way for us to create webhooks without granting these permissions. We are working with GitHub on enabling this functionality for Quay.io integrations.
 
 However, users can [revoke their granted GitHub read/write permissions](https://help.github.com/articles/keeping-your-ssh-keys-and-application-access-tokens-safe/) _after a trigger has been setup_ without breaking the Quay.io build trigger.
 
