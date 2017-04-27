@@ -2,7 +2,7 @@
 layout: doc
 sublayout: issue
 title: I'm authorized but I'm still getting 403s
-reviewed: 2015-05-28T16:29:15-04:00
+reviewed: 2017-04-26T17:30:00-04:00
 frontpage: True
 ---
 
@@ -14,7 +14,7 @@ CentOS 7 introduced a custom build of docker with a known issue that prevents lo
 
 #### Workaround
 
-Build docker from source or downgrade to CentOS 6 until such time as CentOS 7's default distribution is fixed.
+Please upgrade your version of Docker.
 
 ### You are using docker version 0.8.1
 
@@ -22,20 +22,15 @@ docker 0.8.1 introduced [a bug](https://github.com/dotcloud/docker/issues/4267) 
 
 #### Workaround
 
-Note: This workaround may not work 100% of time.
-
-If you are still encountering auth issues (especially on `push`), please downgrade to docker 0.8.0 until we've identified the problem in docker.
-
-1. Delete your .dockercfg file: `$ rm .dockercfg`
-2. Login to Quay.io using the following command which _specifies the Quay.io registry path directly_: `$ docker login https://quay.io/v1/`
+Please upgrade your version of Docker.
 
 ### You are executing docker in a different environment
 
-docker stores the credentials it uses for push and pull in a file typically placed at `$HOME/.dockercfg`.
+docker stores the credentials it uses for push and pull in a file typically placed at `$HOME/.docker/config.json`.
 
-If you are executing docker in another environment (scripted `docker build`, virtual machine, makefile, virtualenv, etc), docker will not be able to find the `.dockercfg` file and will fail.
+If you are executing docker in another environment (scripted `docker build`, virtual machine, makefile, virtualenv, etc), docker will not be able to find the `config.json` file and will fail.
 
-_Make sure that the `.dockercfg` is accessible to the environment which is performing the push or pull_.
+_Make sure that the `config.json` is accessible to the environment which is performing the push or pull_.
 
 ### You do not have permission on the repository
 
