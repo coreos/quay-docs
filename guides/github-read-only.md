@@ -2,7 +2,7 @@
 layout: doc
 sublayout: guide
 title: GitHub Read-Only Build Triggers
-reviewed: 2015-09-14T13:50:39-04:00
+reviewed: 2017-04-27T13:38:39-04:00
 ---
 
 GitHub-based build triggers are by default set up with read and write access to a user's source repositories. At this time GitHub does not provide a way to create webhooks without granting these permissions.
