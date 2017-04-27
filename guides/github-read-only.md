@@ -2,13 +2,17 @@
 layout: doc
 sublayout: guide
 title: GitHub Read-Only Build Triggers
-reviewed: 2015-09-14T13:50:39-04:00
+reviewed: 2017-04-27T13:38:39-04:00
 ---
 
-GitHub-based build triggers are by default setup with read and write access to a user's source repositories due to GitHub's limited permissions model.
+GitHub-based build triggers are by default set up with read and write access to a user's source repositories. At this time GitHub does not provide a way for us to create webhooks without granting these permissions. We are working with GitHub on enabling this functionality for Quay.io integrations.
 
-Users can [revoke their granted GitHub read/write permissions](https://help.github.com/articles/keeping-your-ssh-keys-and-application-access-tokens-safe/) _after a trigger has been setup_ and Quay.io will still be able to operate that build trigger.
+However, users can [revoke their granted GitHub read/write permissions](https://help.github.com/articles/keeping-your-ssh-keys-and-application-access-tokens-safe/) _after a trigger has been setup_ without breaking the Quay.io build trigger.
 
-**Note:** The deploy key for the trigger will have to be re-added to the GitHub repository. The deploy key can be seen by clicking on the gear icon (<i class="fa fa-gear"></i>) next to the trigger and choosing "View Credentials".
+### Setting up GitHub Read-Only Build Trigger
 
-**Note:** The "Run Trigger Now" command on the build trigger will not function in this setup, as it requires access to lookup the GitHub repository's HEAD commit ID.
+1. Follow the steps to create a build trigger by selecting GitHub under the `Create Build Trigger` button on the repository's Build tab.
+2. In GitHub, [revoke the newly granted read/write permissions](https://help.github.com/articles/keeping-your-ssh-keys-and-application-access-tokens-safe/) for the new Quay.io integration.
+3. Re-add the deploy key for the trigger to the GitHub repository. You can find the deploy key by clicking on the gear icon (<i class="fa fa-gear"></i>) next to the trigger on Quay.io and choosing "View Credentials".
+
+:warning: The "Run Trigger Now" command on the build trigger requires read access to the GitHub repository and will not work if these permissions have been revoked. This is because it needs to look up the GitHub repository's HEAD commit ID to run the trigger.
