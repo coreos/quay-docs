@@ -1,12 +1,12 @@
 ---
 layout: doc
 sublayout: guide
-title: Running Quay.io behind a load balancer
-reviewed: 2015-06-17T17:11:09-04:00
+title: Running Quay behind a load balancer
+reviewed: 2017-04-27T15:17:53-04:00
 ---
 
-Running an enterprise instance of Quay.io behind a load balancer is often desired for large installations.
-However, simply putting a load balancer in front of the Quay.io container has some unintended consequences:
+Running an enterprise instance of Quay behind a load balancer is often desired for large installations.
+However, simply putting a load balancer in front of the Quay Enterprise container has some unintended consequences:
 
  * all logged IP addresses will be the IP of the load balancer
  * since the TLS-termination is done by the container, you can't use both a load balancer and HTTPS.
@@ -25,7 +25,7 @@ Load balancer requirements include:
 | -------- | :------------: | :------------: |
 | HAProxy  |        ✓       |       ✓        |
 | ELB      |        ✓       |       ✓        |
-| nginx    |        ✓       |       ✕        |
+| nginx    |        ✓       |       ✓        |
 
 Feel free to submit more entries to this table via a Pull Request on GitHub.
 
@@ -37,7 +37,7 @@ After an ELB has been created with Proxy Protcol enabled, the listeners must be 
 When properly configured, the Listeners tab for the ELB should appear like so:
 
 <div class="article-image">
-  <a href="listeners.png"><img src="listeners.png"></a>
+  <a href="listeners.png"><img src="listeners.png" style="width:100%;"></a>
 </div>
 
 After the listeners have been configured, the health checking endpoint needs to be configured to use the previously unused **port 443**.
