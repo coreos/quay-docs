@@ -2,7 +2,7 @@
 layout: doc
 sublayout: issue
 title: Cannot access private repositories using EC2 Container Service
-reviewed: 2016-05-17T17:45:11-04:00
+reviewed: 2017-04-27T15:45:11-04:00
 frontpage: True
 ---
 Authentication is failing while attempting to use Amazon ECS (EC2 Container Service)
