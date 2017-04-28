@@ -2,13 +2,13 @@
 layout: doc
 sublayout: issue
 title: Could not login as a user
-reviewed: 2015-05-15T16:32:20-04:00
+reviewed: 2017-04-28T10:08:20-04:00
 ---
 Authentication failed
 
 ### You do not have the correct password for the user
 
-To change your password, visit the [change password tab](https://quay.io/user/?tab=password) under the user admin page.
+To change your password, visit the accounts settings page, click on the user settings tab, and click on `Change password`.
 
 ### The user does not exist
 
