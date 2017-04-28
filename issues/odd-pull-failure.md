@@ -2,7 +2,7 @@
 layout: doc
 sublayout: issue
 title: Pulls are failing with an odd error
-reviewed: 2015-05-18T12:10:58-04:00
+reviewed: 2017-04-27T15:11:56-04:00
 frontpage: True
 ---
 Attempting to `docker pull` from Quay.io results in an odd error message
@@ -21,7 +21,7 @@ bd6de6dfce2d: Error downloading dependent layers
 
 #### Linux kernel bug on Ubuntu Precise Pangolin (12.04 LTS) (64-bit)
 
-Precise has a linux kernel bug that must be updated in order to use docker. Follow these instructions (copied from [here](http://docs.docker.io/en/latest/installation/ubuntulinux/#ubuntu-precise)) and _make sure to reboot_ before trying again.
+Precise has a linux kernel bug that must be updated in order to use docker. Follow these instructions and _make sure to reboot_ before trying again.
 
 ```
 $ sudo apt-get update
@@ -31,7 +31,7 @@ $ sudo reboot
 
 #### Missing AUFS on Raring 13.04 and Saucy 13.10 (64-bit)
 
-Not all installations of Ubuntu 13.04/13.10 ship with AUFS enabled. Follow these instructions (copied from [here](http://docs.docker.io/en/latest/installation/ubuntulinux/#ubuntu-raring-saucy)).
+Not all installations of Ubuntu 13.04/13.10 ship with AUFS enabled. Follow these instructions.
 
 ```
 $ sudo apt-get update

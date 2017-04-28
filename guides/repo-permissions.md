@@ -2,14 +2,14 @@
 layout: doc
 sublayout: guide
 title: Repository permissions
-reviewed: 2015-05-28T16:29:15-04:00
+reviewed: 2017-04-27T14:05:58-04:00
 ---
 
 Repository permissions define which users, [robot accounts](/glossary/robot-accounts.html) and [teams](/glossary/teams.html) have access to a repository for pulling, pushing and administrating. To view and modify permissions for a repository, click the <span class="tab-reference"><i class="tab-icon fa fa-gear"></i>Settings</span> tab in the [Repository View](/guides/repo-view.html).
 
 Note: viewing and changing permissions requires **repository admin permission**.
 
-![Permissions Table](repo-permissions.png)
+![Permissions Table](repo-permissions.png){: width="100%"}
 
 ### Adding a new permission
 
@@ -25,4 +25,4 @@ To remove a permission for an entity (user, robot, team), click the <i class="fa
 
 ### Why does a <i class="fa fa-warning" style="color: #E8BB03; margin-right: 4px;"></i>icon appear next to a user?
 
-The triangle icon means that the user has permission on the repository, but is not a member of that repository's [Organization](glossary/organization.html).
+The triangle icon means that the user has permission on the repository, but is not a member of that repository's [Organization](/glossary/organizations.html).

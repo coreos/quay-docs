@@ -2,13 +2,13 @@
 layout: doc
 sublayout: issue
 title: Cannot modify repository
-reviewed: 2015-05-28T16:29:15-04:00
+reviewed: 2017-04-27T13:16:22-04:00
 ---
 The user, [robot account](/glossary/robot-accounts.html), or [access token](/glossary/access-token.html) does not have permission to modify the repository.
 
 ### An access token or user does not have at least _write_ permission on the repository
 
-Check the permissions for the user, robot account or token in the repository permissions table](/guides/repo-permissions.html) and make sure it is listed with `write` or `admin`
+Check the permissions for the user, robot account or token in the [repository permissions table](/guides/repo-permissions.html) and make sure it is listed with `write` or `admin`
 
 ### You are authenticated and have _write_/_admin_ permission but still see the error
 
