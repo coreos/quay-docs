@@ -2,7 +2,7 @@
 layout: doc
 sublayout: guide
 title: Building Dockerfiles
-reviewed: 2015-10-03T12:41:25-04:00
+reviewed: 2017-04-28T12:00:00-08:00
 ---
 
 Quay.io supports the ability to build [Dockerfiles](http://docs.docker.com/reference/builder/) on our build fleet, and push the resulting image to the repository.
@@ -13,7 +13,7 @@ Repository Builds can be viewed and managed by clicking the <span class="tab-ref
 
 ## Manually starting a build
 
-To manually start a repository build, click the `+` icon in the top right of the header on any repository page and choose 'New Dockerfile Build'. A `Dockerfile` or a `.tar.gz` or an HTTP URL to either can be uploaded for the build.
+To manually start a repository build, click the `+` icon in the top right of the header on any repository page and choose 'New Dockerfile Build'. An uploaded `Dockerfile`, `.tar.gz`, or an HTTP URL to either can be used for the build.
 
 ## Build Triggers
 
@@ -30,7 +30,7 @@ To trigger a build trigger manually, click the <i class="fa fa-gear"></i> icon n
 
 ### Build Contexts
 
-When building an image with docker, a directory is specified to become the build context.
+When building an image with Docker, a directory is specified to become the build context.
 This holds true for both manual builds and build triggers because the builds conducted by Quay.io are no different from running `docker build` on your own machine.
 Quay.io build contexts are always the specified _subdirectory_ from the build setup and fallback to the root of the build source if none is specified.
 When a build is triggered, Quay.io build workers clone the git repository to the worker machine and enter the build context before conducting a build.
@@ -50,4 +50,4 @@ If no subdirectory is specified in the build trigger setup, the build will opera
 If `subdir` is specified to be the subdirectory in the build trigger setup, only the Dockerfile within it is visible to the build.
 This means that you cannot use the `ADD` command in the Dockerfile to add `file`, because it is outside of the build context.
 
-Unlike the Docker Hub, the Dockerfile is part of the build context on Quay. Thus, it must not appear in .dockerignore file.
+Unlike the Docker Hub, the Dockerfile is part of the build context on Quay. Thus, it must not appear in the `.dockerignore` file.
