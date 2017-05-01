@@ -13,7 +13,8 @@ Repository Builds can be viewed and managed by clicking the <span class="tab-ref
 
 ## Manually starting a build
 
-To manually start a repository build, click the `+` icon in the top right of the header on any repository page and choose 'New Dockerfile Build'. An uploaded `Dockerfile`, `.tar.gz`, or an HTTP URL to either can be used for the build.
+To manually start a repository build, click the `+` icon in the top right of the header on any repository page and choose 'New Dockerfile Build'. An uploaded `Dockerfile`, `.tar.gz`, or an HTTP URL to either can be used for the build. 
+**Note: you will not be able to specify the Docker build context when manually starting a build.**
 
 ## Build Triggers
 
@@ -46,7 +47,7 @@ example
 ```
 
 Imagine the example above is the directory structure for a GitHub repository called "example".
-If no subdirectory is specified in the build trigger setup, the build will operate in the example directory.
+If no subdirectory is specified in the build trigger setup or while manually starting a build, the build will operate in the example directory.
 If `subdir` is specified to be the subdirectory in the build trigger setup, only the Dockerfile within it is visible to the build.
 This means that you cannot use the `ADD` command in the Dockerfile to add `file`, because it is outside of the build context.
 
