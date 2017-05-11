@@ -18,8 +18,13 @@ title: API Explorer
 <script src='lib/swagger-oauth.js' type='text/javascript'></script>
 
 <link href='css/screen.css' media='screen' rel='stylesheet' type='text/css'/>
+<link href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" media='screen' rel='stylesheet' type='text/css'/>
 
 <script type="text/javascript">
+if (document.location.toString().indexOf('http://docs.quay.io/api/swagger/') == 0) {
+  document.location = 'https://docs.quay.io/api/swagger/'
+}
+
 $(function () {
   // TODO Detect site domain and fallback to that instead of Quay.io.
   var host = '{{ site.quayhost }}' || 'https://quay.io';
@@ -97,6 +102,9 @@ window.swaggerUi.load();
   display: none;
 }
 
+.coreos-docs {
+  padding: 30px;
+}
 
 .swagger-section h3 {
   margin-top: 0px !important;
@@ -126,12 +134,89 @@ window.swaggerUi.load();
 .swagger-section .api-popup-scopes .api-scope-desc {
   display: inline-block;
 }
+
+.co-alert {
+  padding: 16px;
+  padding-left: 46px;
+  position: relative;
+  margin-bottom: 20px;
+  position: relative;
+  border: 1px solid #eee;
+}
+
+.co-alert.co-alert-success {
+  background: #F0FFF4;
+}
+
+.co-alert.co-alert-success:before {
+  font-family: FontAwesome;
+  content: "\f058";
+  position: absolute;
+  top: 11px;
+  left: 12px;
+  font-size: 22px;
+  color: #83D29C;
+}
+
+.co-alert.co-alert-info {
+  background: #F0FAFF;
+}
+
+.co-alert.co-alert-info:before {
+  font-family: FontAwesome;
+  content: "\f05a";
+  position: absolute;
+  top: 11px;
+  left: 12px;
+  font-size: 22px;
+  color: #83B7D2;
+}
+
+.co-alert.co-alert-warning {
+  background: #FFFBF0;
+}
+
+.co-alert.co-alert-warning:before {
+  font-family: FontAwesome;
+  content: "\f071";
+  position: absolute;
+  top: 11px;
+  left: 12px;
+  font-size: 22px;
+  color: #FCA657;
+}
+
+.co-alert.co-alert-danger {
+  background: #FFF0F0;
+}
+
+.co-alert.co-alert-danger:before {
+  font-family: core-icons;
+  content: "\f109";
+  position: absolute;
+  top: 11px;
+  left: 12px;
+  font-size: 22px;
+  color: red;
+}
+
+.co-alert.co-alert-danger:after {
+  font-family: FontAwesome;
+  content: "\f12a";
+  position: absolute;
+  top: 16px;
+  left: 20px;
+  font-size: 16px;
+  color: white;
+  z-index: 2;
+}
 </style>
 
 <div class="row">
 <div class="col-lg-10 col-md-10 col-sm-12">
 <div class="coreos-docs">
   <h1>{{ page.title }}</h1>
+  <div class="co-alert co-alert-info">Note: The endpoints listed below do <strong>not</strong> include superuser endpoints available on <a href="https://coreos.com/quay-enterprise/" target="_blank">Quay Enterprise</a> installations. To view those endpoints, point a <a href="http://petstore.swagger.io/" target="_blank">Swagger UI</a> at the <code>/api/v1/discovery</code> URL on your own installation.</div>
   <div id="message-bar" class="swagger-ui-wrap">&nbsp;</div>
   <div id="swagger-ui-container" class="swagger-ui-wrap"></div>
 </div>
