@@ -171,6 +171,7 @@ i.slack-icon {
   margin-top: 30px;
   padding: 10px;
   border: 1px solid #eee;
+  max-width: 100%;
 }
 
 i.tab-icon {
