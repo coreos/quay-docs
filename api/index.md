@@ -36,7 +36,7 @@ the permissions granted to the token to perform some work.
       $.ajax({
         url: "https://quay.io/api/v1/discovery"
         }).done(function(f) {
-            var scopes = f.authorizations.oauth2.scopes;
+            var scopes = f.securityDefinitions.oauth2_implicit.scopes;
             $.each(scopes, function(i, item) {
                 var $tr = $('<tr>').append(
                     $('<td>').text(item.scope),
