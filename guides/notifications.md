@@ -19,16 +19,16 @@ A successful push of one or more images was made to the repository
 
 ```json
 {
+  "name": "repository",
   "repository": "mynamespace/repository",
   "namespace": "mynamespace",
-  "name": "repository",
   "docker_url": "quay.io/mynamespace/repository",
   "homepage": "https://quay.io/repository/mynamespace/repository",
-
-  "updated_tags": {
-    "latest": "b750fe79269d2ec9a3c593ef05b4332b1d1a02a62b4accb2c21d589ff2f5f2dc"
-  }
+  "updated_tags": [
+    "latest"
+  ]
 }
+
 ```
 
 #### <i class="fa fa-lg fa-tasks event-icon"></i>Dockerfile Build Queued
@@ -275,4 +275,3 @@ Posts a message to Slack.
 <a name="flowdock"></a>
 
 Posts a message to Flowdock.
-
