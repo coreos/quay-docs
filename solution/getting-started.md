@@ -11,32 +11,58 @@ reviewed: 2017-04-28T17:51:00-08:00
 
 {% include login.md %}
 
-### Create a new container
+### Create a new image
 
-First we'll create a container with a single new file based off of the `ubuntu` base image:
-
-```
-$ docker run ubuntu echo "fun" > newfile
-```
-
-The container will immediately terminate (because its one command is `echo`), so we'll use `docker ps -l` to list it:
+First we'll create a Docker image, with a Dockerfile based off of the `ubuntu` base image:
 
 ```
-$ docker ps -l
-CONTAINER ID        IMAGE               COMMAND             CREATED
-07f2065197ef        ubuntu:12.04        echo fun            31 seconds ago
+FROM ubuntu
+
+RUN echo 'Hello World'
+
 ```
 
-Make note of the _**container id**_; we'll need it for the commit command.
+Now we can run `docker build -t my_image .` to create the image:
 
-### Tag the container to an image
+```
+$docker build -t my_image .
+Sending build context to Docker daemon  2.048kB
+Step 1/2 : FROM ubuntu
+latest: Pulling from library/ubuntu
+75c416ea735c: Pull complete 
+c6ff40b6d658: Pull complete 
+a7050fc1f338: Pull complete 
+f0ffb5cf6ba9: Pull complete 
+be232718519c: Pull complete 
+Digest: sha256:a0ee7647e24c8494f1cf6b94f1a3cd127f423268293c25d924fbe18fd82db5a4
+Status: Downloaded newer image for ubuntu:latest
+ ---> d355ed3537e9
+Step 2/2 : RUN echo 'Hello'
+ ---> Running in f371332292b6
+Hello
+ ---> 3b8235e94f42
+Removing intermediate container f371332292b6
+Successfully built 3b8235e94f42
+Successfully tagged my_image:latest
 
-We next need to tag the container to a known image name
+```
+
+Now run `docker image` to see the ID and name of our image
+
+```
+docker images
+REPOSITORY                              TAG                 IMAGE ID            CREATED             SIZE
+my_image                                latest              3b8235e94f42        54 seconds ago      119MB
+```
+
+### Tag the image
+
+We next need to tag the image to the name of the repo we want to create.
 
 Note that the _**username**_ must be your Quay.io username and _**reponame**_ is the new name of your repository.
 
 ```
-$ docker commit 07f2065197ef quay.io/username/reponame
+$ docker tag my_image quay.io/username/reponame
 e7050e05a288f9f3498ccd2847fee966d701867bc671b02abf03a6629dc921bb
 ```
 
