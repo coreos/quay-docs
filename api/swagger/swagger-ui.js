@@ -1175,7 +1175,8 @@ SwaggerClient.prototype.build = function (mock) {
     url: this.url,
     method: 'get',
     headers: {
-      accept: this.swaggerRequestHeaders
+      accept: this.swaggerRequestHeaders,
+      'X-Requested-With': 'XMLHttpRequest'
     },
     on: {
       error: function (response) {
