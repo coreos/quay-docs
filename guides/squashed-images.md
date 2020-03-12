@@ -2,7 +2,7 @@
 layout: doc
 sublayout: guide
 title: Downloading Squashed Docker Images
-reviewed: 2015-07-14T14:28:03-04:00
+reviewed: 2017-04-27T15:50:03-04:00
 ---
 
 Docker images are composed of image layers which include all of the intermediary data used to reach their current state.
